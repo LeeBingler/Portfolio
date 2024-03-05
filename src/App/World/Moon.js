@@ -5,6 +5,9 @@ import * as THREE from 'three';
 import vertexShader from '../shaders/moon/vertex.glsl';
 import fragmentShader from '../shaders/moon/fragment.glsl';
 
+import haloVertexShader from '../shaders/halo/vertex.glsl';
+import haloFragmentShader from '../shaders/halo/fragment.glsl';
+
 export default class Moon {
     constructor() {
         this.app = new App();
@@ -23,6 +26,8 @@ export default class Moon {
 
     _initGeo() {
         this.geometry = new THREE.SphereGeometry(13, 200, 200);
+
+        this.haloGeometry = new THREE.SphereGeometry(14);
     }
 
     _initMat() {
@@ -37,6 +42,12 @@ export default class Moon {
             vertexShader,
             fragmentShader,
             uniforms,
+        });
+
+        this.haloMaterial = new THREE.ShaderMaterial({
+            fragmentShader: haloFragmentShader,
+            vertexShader: haloVertexShader,
+            transparent: true,
         });
 
         if (this.debug.active) {
@@ -58,11 +69,14 @@ export default class Moon {
         this.moon = new THREE.Mesh(this.geometry, this.material);
         this.moon.rotateX(Math.PI * 0.1);
 
+        this.halo = new THREE.Mesh(this.haloGeometry, this.haloMaterial);
+
         this.Plight = new THREE.PointLight(0xff4030, 2000, 150, 1.7);
         this.Plight.position.z += 1;
 
+
         this.instance = new THREE.Group();
-        this.instance.add(this.moon, this.Plight);
+        this.instance.add(this.moon, this.Plight, this.halo);
 
         this.instance.position.set(0, 25, -70);
     }
