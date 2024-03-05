@@ -19,5 +19,9 @@ export default class World {
         });
     }
 
-    update(elapsedTime, deltaTime) {}
+    update(elapsedTime, deltaTime) {
+        if (this.moon) {
+            this.moon.update(elapsedTime)
+        }
+    }
 }
