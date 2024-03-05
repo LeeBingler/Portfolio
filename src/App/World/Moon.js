@@ -58,7 +58,7 @@ export default class Moon {
         this.moon = new THREE.Mesh(this.geometry, this.material);
         this.moon.rotateX(Math.PI * 0.1);
 
-        this.Plight = new THREE.PointLight(0xff4030, 5000, 150, 1.7);
+        this.Plight = new THREE.PointLight(0xff4030, 2000, 150, 1.7);
         this.Plight.position.z += 1;
 
         this.instance = new THREE.Group();
@@ -69,5 +69,8 @@ export default class Moon {
 
     update(elapsedTime) {
         this.material.uniforms.uTime.value = elapsedTime * 0.1;
+
+        this.Plight.position.y = 25 - 13 - 13 * 0.5 + Math.cos(elapsedTime * 2) * 3;
+        this.Plight.position.z += Math.sin(elapsedTime * 100);
     }
 }

@@ -25,7 +25,7 @@ export default class World {
     update(elapsedTime, deltaTime) {
         if (this.ready) {
             this.moon.update(elapsedTime);
-            this.stars.update(elapsedTime)
+            this.stars.update(elapsedTime);
         }
     }
 }
