@@ -4,13 +4,15 @@ varying vec3 vNormal;
 
 uniform vec3 uColorA;
 uniform vec3 uColorB;
+uniform float uTime;
+uniform float uFrequenceNoise;
 
-#include ../includes/simplexNoise2d.glsl
+#include ../includes/simplexNoise3d.glsl
 
 void main() {
     vec3 normal = normalize(vNormal);
 
-    float noisePattern = smoothstep(0.1, 0.8, snoise(vUv * 10.0));
+    float noisePattern = smoothstep(0.1, 0.8, snoise3d(vec3(vUv.xy, uTime * 0.1) * uFrequenceNoise));
     vec3 color = mix(uColorB, uColorA, noisePattern);
 
     // More realistic render

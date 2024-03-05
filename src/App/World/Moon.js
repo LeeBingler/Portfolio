@@ -27,12 +27,15 @@ export default class Moon {
     _initGeo() {
         this.geometry = new THREE.SphereGeometry(13, 200, 200);
 
-        this.haloGeometry = new THREE.SphereGeometry(14);
+        this.haloGeometry = new THREE.SphereGeometry(14.5);
     }
 
     _initMat() {
         const uniforms = {
             uTime: new THREE.Uniform(0),
+
+            uFrequenceNoise: new THREE.Uniform(10),
+            uStrengthDisplacement: new THREE.Uniform(0.526),
 
             uColorA: new THREE.Uniform(new THREE.Color('#9b1a1a')),
             uColorB: new THREE.Uniform(new THREE.Color('#ff7373')),
@@ -62,6 +65,19 @@ export default class Moon {
             this.debugFolder.addColor(debugParameter, 'colorB').onChange(() => {
                 this.material.uniforms.uColorB.value.set(debugParameter.colorB);
             });
+
+            this.debugFolder
+                .add(this.material.uniforms.uFrequenceNoise, 'value')
+                .min(1)
+                .max(100)
+                .step(0.1)
+                .name('uFrequenceNoise');
+            this.debugFolder
+                .add(this.material.uniforms.uStrengthDisplacement, 'value')
+                .min(0)
+                .max(2)
+                .step(0.001)
+                .name('uStrengthDisplacement');
         }
     }
 
@@ -73,7 +89,6 @@ export default class Moon {
 
         this.Plight = new THREE.PointLight(0xff4030, 2000, 150, 1.7);
         this.Plight.position.z += 1;
-
 
         this.instance = new THREE.Group();
         this.instance.add(this.moon, this.Plight, this.halo);
