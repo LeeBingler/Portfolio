@@ -48,10 +48,6 @@ export default class Resources extends EventEmitter {
                 this.loaders.textureLoader.load(source.path, (file) => {
                     this._sourceLoaded(source, file);
                 });
-            } else if (source.type === 'texture') {
-                this.loaders.textureLoader.load(source.path, (file) => {
-                    this._sourceLoaded(source, file);
-                });
             } else if (source.type === 'audio') {
                 this.loaders.audioLoader.load(source.path, (file) => {
                     this._sourceLoaded(source, file);

@@ -8,8 +8,6 @@ import Sizes from './Utils/Sizes';
 import Time from './Utils/Time';
 import World from './World/World';
 
-import ControlPanel from './ControlPanel';
-
 import sources from './sources';
 import Mouse from './Utils/Mouse';
 
@@ -38,11 +36,11 @@ export default class App {
 
         this.sizes.on('resize', () => {
             this._resize();
-        })
+        });
 
         this.time.on('tick', () => {
             this._update();
-        })
+        });
     }
 
     _resize() {
