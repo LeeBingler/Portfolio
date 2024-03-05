@@ -1,9 +1,9 @@
 import * as THREE from 'three';
 
-import App from '../App';
+import App from '../../App';
 
-import vertexShader from '../shaders/stars/vertex.glsl';
-import fragmentShader from '../shaders/stars/fragment.glsl';
+import vertexShader from '../../shaders/stars/vertex.glsl';
+import fragmentShader from '../../shaders/stars/fragment.glsl';
 
 export default class Stars {
     constructor(numberStars = 1000) {

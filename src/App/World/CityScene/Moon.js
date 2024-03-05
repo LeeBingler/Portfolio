@@ -1,12 +1,12 @@
-import App from '../App.js';
+import App from '../../App.js';
 
 import * as THREE from 'three';
 
-import vertexShader from '../shaders/moon/vertex.glsl';
-import fragmentShader from '../shaders/moon/fragment.glsl';
+import vertexShader from '../../shaders/moon/vertex.glsl';
+import fragmentShader from '../../shaders/moon/fragment.glsl';
 
-import haloVertexShader from '../shaders/halo/vertex.glsl';
-import haloFragmentShader from '../shaders/halo/fragment.glsl';
+import haloVertexShader from '../../shaders/halo/vertex.glsl';
+import haloFragmentShader from '../../shaders/halo/fragment.glsl';
 
 export default class Moon {
     constructor() {

@@ -1,9 +1,6 @@
 import * as THREE from 'three';
 import App from '../App.js';
-
-import City from './City.js';
-import Moon from './Moon.js';
-import Stars from './Stars.js';
+import CityScene from './CityScene/CityScene.js';
 
 export default class World {
     constructor() {
@@ -14,18 +11,15 @@ export default class World {
         this.scene.add(this.light);
 
         this.resources.on('ready', () => {
-            this.city = new City();
-            this.moon = new Moon();
-            this.stars = new Stars();
-            this.scene.add(this.city.instance, this.moon.instance, this.stars.instance);
+            this.cityScene = new CityScene();
+            this.scene.add(this.cityScene.instance);
             this.ready = true;
         });
     }
 
     update(elapsedTime, deltaTime) {
         if (this.ready) {
-            this.moon.update(elapsedTime);
-            this.stars.update(elapsedTime);
+            this.cityScene.update(elapsedTime);
         }
     }
 }
