@@ -36,7 +36,7 @@ export default class Camera {
         this.mouse.on('pointermove', () => {
             gsap.to(this.instance.rotation, {
                 y: -this.mouse.coordNormalize.x * 0.02,
-                x: (this.mouse.coordNormalize.y * 0.02) + Math.PI * 0.07,
+                x: this.mouse.coordNormalize.y * 0.02 + Math.PI * 0.07,
             });
         });
     }

@@ -18,13 +18,7 @@ export default class City {
     _initModel() {
         this.instance = this.model.scene;
 
-        this.instance.position.y -= 1;
-
-        this.instance.traverse((child) => {
-            if (child.name === 'Its_Here') {
-                child.material = new THREE.MeshBasicMaterial({ color: 'white' });
-            }
-        });
+        this.instance.position.y -= 0.1;
     }
 
     update(elapsedTime) {}

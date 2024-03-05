@@ -22,7 +22,7 @@ export default class Moon {
     }
 
     _initGeo() {
-        this.geometry = new THREE.SphereGeometry(8, 200, 200);
+        this.geometry = new THREE.SphereGeometry(13, 200, 200);
     }
 
     _initMat() {
@@ -58,13 +58,13 @@ export default class Moon {
         this.moon = new THREE.Mesh(this.geometry, this.material);
         this.moon.rotateX(Math.PI * 0.1);
 
-        this.Plight = new THREE.PointLight(0xff0000, 4000);
-        this.Plight.position.z += 10;
+        this.Plight = new THREE.PointLight(0xff4030, 5000, 150, 1.7);
+        this.Plight.position.z += 1;
 
         this.instance = new THREE.Group();
         this.instance.add(this.moon, this.Plight);
 
-        this.instance.position.set(0, 15, -40);
+        this.instance.position.set(0, 25, -70);
     }
 
     update(elapsedTime) {
