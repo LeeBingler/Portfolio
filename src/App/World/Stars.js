@@ -6,7 +6,7 @@ import vertexShader from '../shaders/stars/vertex.glsl';
 import fragmentShader from '../shaders/stars/fragment.glsl';
 
 export default class Stars {
-    constructor(numberStars = 2000) {
+    constructor(numberStars = 1000) {
         this.app = new App();
         this.debug = this.app.debug;
 
@@ -28,11 +28,11 @@ export default class Stars {
         for (let i = 0; i < this.numberStars; i++) {
             const i3 = i * 3;
 
-            arrayPositions[i3] = Math.random() * 100;
-            arrayPositions[i3 + 1] = Math.random() * 5;
-            arrayPositions[i3 + 2] = Math.random() * 300;
+            arrayPositions[i3] = Math.random() * 300;
+            arrayPositions[i3 + 1] = Math.random();
+            arrayPositions[i3 + 2] = Math.random() * 150;
 
-            randomScale[i] = Math.max(0.15, Math.random());
+            randomScale[i] = 0.3 + Math.random();
         }
 
         this.geometry = new THREE.BufferGeometry();
@@ -77,7 +77,7 @@ export default class Stars {
 
     _initStars() {
         this.instance = new THREE.Points(this.geometry, this.material);
-        this.instance.position.set(-50, 20, -150);
+        this.instance.position.set(-100, 33, -150);
     }
 
     update(elapsedTime) {
