@@ -10,7 +10,9 @@ void main() {
     float fresnel = dot(viewPosition, normal) + 1.0;
     fresnel = pow(fresnel, 2.0);
 
-    float halo = smoothstep(0.0, 0.8, fresnel);
+    float halo = step(0.3, fresnel);
+    float falloffEdge = smoothstep(0.7, 0.0, fresnel);
+    halo *= falloffEdge;
 
     gl_FragColor = vec4(color, halo);
 }
