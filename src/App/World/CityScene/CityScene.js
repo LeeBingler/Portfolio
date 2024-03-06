@@ -18,9 +18,6 @@ export default class CityScene {
     _initCityScene() {
         this.instance = new THREE.Group();
         
-        this.Dligth = new THREE.DirectionalLight(0xffffff, 10);
-        this.Dligth.position.z += 2;
-        //this.instance.add(this.Dligth);
         this.instance.add(this.city.instance, this.moon.instance, this.stars.instance);
     }
 

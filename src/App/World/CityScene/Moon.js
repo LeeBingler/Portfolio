@@ -87,11 +87,8 @@ export default class Moon {
 
         this.halo = new THREE.Mesh(this.haloGeometry, this.haloMaterial);
 
-        this.Plight = new THREE.PointLight(0xff4030, 2000, 150, 1.7);
-        this.Plight.position.z += 1;
-
         this.instance = new THREE.Group();
-        this.instance.add(this.moon, this.Plight, this.halo);
+        this.instance.add(this.moon, this.halo);
 
         this.instance.position.set(0, 25, -70);
     }
