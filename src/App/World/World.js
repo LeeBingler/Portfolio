@@ -7,7 +7,7 @@ export default class World {
         this.app = new App();
         this.scene = this.app.scene;
         this.resources = this.app.resources;
-        this.light = new THREE.AmbientLight(0xffffff, 5);
+        this.light = new THREE.AmbientLight(0xffffff, 10);
         this.scene.add(this.light);
 
         this.resources.on('ready', () => {

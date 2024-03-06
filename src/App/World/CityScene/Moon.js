@@ -98,8 +98,5 @@ export default class Moon {
 
     update(elapsedTime) {
         this.material.uniforms.uTime.value = elapsedTime * 0.1;
-
-        this.Plight.position.y = 25 - 13 - 13 * 0.5 + Math.cos(elapsedTime * 2) * 3;
-        this.Plight.position.z += Math.sin(elapsedTime * 100);
     }
 }

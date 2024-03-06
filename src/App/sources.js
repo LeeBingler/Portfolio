@@ -2,6 +2,11 @@ export default [
     {
         name: 'ModelCity',
         type: 'gltfModel',
-        path: 'models/city-v3.glb',
+        path: 'models/city.glb',
     },
+    {
+        name: 'TextureCity',
+        type: 'texture',
+        path: 'textures/BakedTextureFinal.jpg',
+    }
 ];
