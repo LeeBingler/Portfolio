@@ -26,6 +26,7 @@ export default class CityLayout {
             transparent: true,
 
             uniforms: {
+                uTouch: new THREE.Uniform(new THREE.Vector2(0, 0)),
                 uTexture: new THREE.Uniform(this.texture)
             }
         });
@@ -45,6 +46,13 @@ export default class CityLayout {
     }
 
     onPointerMove() {
-        console.log(this.raycaster.getItemIntersect(this.presentationPlane.uuid))
+        const intersect = this.raycaster.getItemIntersect(this.presentationPlane.uuid);
+
+        if (intersect) {
+            const { x, y } = intersect.uv;
+            this.materialPresentation.uniforms.uTouch.value.set(x, y);
+        } else {
+            this.materialPresentation.uniforms.uTouch.value.set(0, 0);
+        }
     }
 }
