@@ -49,10 +49,11 @@ export default class CityLayout {
         const intersect = this.raycaster.getItemIntersect(this.presentationPlane.uuid);
 
         if (intersect) {
-            const { x, y } = intersect.uv;
+            const { x, y } = intersect.point;
+            console.log(intersect);
             this.materialPresentation.uniforms.uTouch.value.set(x, y);
         } else {
-            this.materialPresentation.uniforms.uTouch.value.set(0, 0);
+            this.materialPresentation.uniforms.uTouch.value.set(10, 10);
         }
     }
 }
