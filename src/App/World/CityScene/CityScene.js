@@ -27,6 +27,10 @@ export default class CityScene {
 
     }
 
+    onPointerMove() {
+        this.layout.onPointerMove();
+    }
+
     update(elapsedTime) {
         this.moon.update(elapsedTime);
         this.stars.update(elapsedTime);

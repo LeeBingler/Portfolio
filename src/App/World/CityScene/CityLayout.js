@@ -10,7 +10,9 @@ export default class CityLayout {
         this.app = new App();
         this.camera = this.app.camera.instance;
         this.resource = this.app.resources;
-        this.texture = this.resource.items.TexturePresentation
+        this.raycaster = this.app.raycaster;
+
+        this.texture = this.resource.items.TexturePresentation;
         this.instance = new THREE.Group();
         
         this._initMaterial();
@@ -31,14 +33,18 @@ export default class CityLayout {
 
     _initPresentationSection() {
         this.geometryPresentation = new THREE.PlaneGeometry(16 / 4, 9 / 4);
-        this.presentationSection = new THREE.Mesh(
+        this.presentationPlane = new THREE.Mesh(
             this.geometryPresentation, 
             this.materialPresentation
         );
 
-        this.presentationSection.position.set(0, 1, -3.5);
-        this.presentationSection.lookAt(this.camera.position);
+        this.presentationPlane.position.set(0, 1, -3.5);
+        this.presentationPlane.lookAt(this.camera.position);
 
-        this.instance.add(this.presentationSection);
+        this.instance.add(this.presentationPlane);
+    }
+
+    onPointerMove() {
+        console.log(this.raycaster.getItemIntersect(this.presentationPlane.uuid))
     }
 }

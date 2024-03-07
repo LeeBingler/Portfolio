@@ -6,6 +6,7 @@ import Debug from './Utils/Debug';
 import Resources from './Utils/Resources';
 import Sizes from './Utils/Sizes';
 import Time from './Utils/Time';
+import MyRaycaster from './Raycaster.js';
 import World from './World/World';
 
 import sources from './sources';
@@ -32,6 +33,7 @@ export default class App {
         this.resources = new Resources(sources);
         this.camera = new Camera();
         this.renderer = new Renderer();
+        this.raycaster = new MyRaycaster();
         this.world = new World();
 
         this.sizes.on('resize', () => {
@@ -41,6 +43,15 @@ export default class App {
         this.time.on('tick', () => {
             this._update();
         });
+
+        this.mouse.on('pointermove', () => {
+            this._onPointerMove();
+        })
+    }
+
+    _onPointerMove() {
+        this.camera.onPointerMove();
+        this.world.onPointerMove();
     }
 
     _resize() {

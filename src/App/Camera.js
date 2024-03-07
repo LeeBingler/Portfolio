@@ -17,7 +17,6 @@ export default class Camera {
         this.controls = null;
 
         this._setInstance();
-        this._setMoveCamera();
     }
 
     _setInstance() {
@@ -32,18 +31,16 @@ export default class Camera {
         this.scene.add(this.instance);
     }
 
-    _setMoveCamera() {
-        this.mouse.on('pointermove', () => {
+    _setOrbitControls() {
+        this.controls = new OrbitControls(this.instance, this.canvas);
+        this.controls.enableDamping = true;
+    }
+
+    onPointerMove() {
             gsap.to(this.instance.rotation, {
                 y: -this.mouse.coordNormalize.x * 0.02,
                 x: this.mouse.coordNormalize.y * 0.02 + Math.PI * 0.07,
             });
-        });
-    }
-
-    _setOrbitControls() {
-        this.controls = new OrbitControls(this.instance, this.canvas);
-        this.controls.enableDamping = true;
     }
 
     resize() {
