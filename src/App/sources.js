@@ -8,5 +8,10 @@ export default [
         name: 'TextureCity',
         type: 'texture',
         path: 'textures/BakedTextureFinal.jpg',
+    },
+    {
+        name: 'TexturePresentation',
+        type: 'texture',
+        path: 'PresentationTexture.png',
     }
 ];

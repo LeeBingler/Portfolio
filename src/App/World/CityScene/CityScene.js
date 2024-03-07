@@ -18,7 +18,13 @@ export default class CityScene {
     _initCityScene() {
         this.instance = new THREE.Group();
         
-        this.instance.add(this.city.instance, this.moon.instance, this.stars.instance);
+        this.instance.add(
+            this.city.instance,
+            this.moon.instance, 
+            this.stars.instance,
+            this.layout.instance
+        );
+
     }
 
     update(elapsedTime) {
