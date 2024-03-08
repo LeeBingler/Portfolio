@@ -60,7 +60,7 @@ export default class App {
     }
 
     _update() {
-        this.camera.update();
+        this.camera.update(this.time.delta);
         this.renderer.update();
         this.world.update(this.time.elapsed, this.time.delta);
     }

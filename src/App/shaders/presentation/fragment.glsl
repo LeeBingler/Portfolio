@@ -14,6 +14,6 @@ void main() {
     trail = trail * -1.0 + 1.0;
 
     alpha *= trail;
-    
+
     gl_FragColor = vec4(vec3(1.0), alpha);
 }

@@ -14,7 +14,8 @@ export default class CityLayout {
         this.raycaster = this.app.raycaster;
 
         this.texture = this.resource.items.TexturePresentation;
-        this.touchTexture = new TouchTexture(16*4, 9*4, 50, 0.15);
+        this.touchTexture = new TouchTexture(16, 9, 50, 0.15);
+
         this.instance = new THREE.Group();
         
         this._initMaterial();
@@ -55,9 +56,7 @@ export default class CityLayout {
                 x: intersect.uv.x,
                 y: intersect.uv.y
             });
-        } else {
-            this.materialPresentation.uniforms.uTouch.value.set(10, 10);
-        }
+        } 
     }
 
     update() {

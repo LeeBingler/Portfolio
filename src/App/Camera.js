@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import  { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js';
 
 import App from './App';
 
@@ -17,6 +17,7 @@ export default class Camera {
         this.controls = null;
 
         this._setInstance();
+        //this._setControl();
     }
 
     _setInstance() {
@@ -31,12 +32,20 @@ export default class Camera {
         this.scene.add(this.instance);
     }
 
-    _setOrbitControls() {
-        this.controls = new OrbitControls(this.instance, this.canvas);
-        this.controls.enableDamping = true;
+    _setControl() {
+        this.controls = new FirstPersonControls(this.instance, this.canvas);
+        this.controls.lookSpeed = 0.0001;
+        this.controls.movementSpeed = 0.05;
+        this.controls.constrainVertical = true;
+        this.controls.verticalMin = Math.PI * 0.4;
+        this.controls.verticalMax = Math.PI * 0.5;
     }
 
     onPointerMove() {
+        /* TODO */
+        /* Need to remove this for the final release */
+        if (this.controls) return;
+
             gsap.to(this.instance.rotation, {
                 y: -this.mouse.coordNormalize.x * 0.02,
                 x: this.mouse.coordNormalize.y * 0.02 + Math.PI * 0.07,
@@ -48,9 +57,9 @@ export default class Camera {
         this.instance.updateProjectionMatrix();
     }
 
-    update() {
+    update(deltaTime) {
         if (this.controls) {
-            this.controls.update();
+            this.controls.update(deltaTime);
         }
     }
 }
