@@ -46,10 +46,17 @@ export default class Camera {
         /* Need to remove this for the final release */
         if (this.controls) return;
 
-            gsap.to(this.instance.rotation, {
-                y: -this.mouse.coordNormalize.x * 0.02,
-                x: this.mouse.coordNormalize.y * 0.02,
-            });
+        
+        /* TODO: Fix the rotation when we change scene*/
+        /*
+        let yRotation = -this.mouse.coordNormalize.x * 0.02 + this.instance.rotation.y;
+        let xRotation = this.mouse.coordNormalize.y * 0.02 + this.instance.rotation.x;
+
+        gsap.to(this.instance.rotation, {
+            y: yRotation,
+            x: xRotation,
+        });
+        */
     }
 
     resize() {

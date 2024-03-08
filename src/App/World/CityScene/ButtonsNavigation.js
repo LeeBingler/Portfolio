@@ -6,6 +6,7 @@ export default class ButtonsNavigation {
     constructor() {
         this.app = new App();
         this.camera = this.app.camera;
+        this.durationAnimation = 1.5;
 
         this._initSection();
         this._createHomeButton();
@@ -25,14 +26,17 @@ export default class ButtonsNavigation {
         this.homeBtn.classList.add('buttons-home');
 
         this.homeBtn.addEventListener('click', () => {
+
             gsap.to(this.camera.instance.position, {
                 x: 0,
                 y: 0,
-                z: 0
+                z: 0,
+                duration: this.durationAnimation
             });
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
-                y: 0
+                y: 0,
+                duration: this.durationAnimation
             });
         });
 
@@ -47,11 +51,13 @@ export default class ButtonsNavigation {
             gsap.to(this.camera.instance.position, {
                 x: -5.8,
                 y: 0.15,
-                z: -22.6
+                z: -22.6,
+                duration: this.durationAnimation
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
-                y: Math.PI * 0.4
+                y: Math.PI * 0.4,
+                duration: this.durationAnimation
             });
         });
 
