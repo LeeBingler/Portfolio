@@ -4,6 +4,7 @@ import App from '../../App.js';
 
 import presentationVertexShader from '../../shaders/presentation/vertex.glsl';
 import presentationFragmentShader from '../../shaders/presentation/fragment.glsl';
+import TouchTexture from '../../Utils/TouchTexture.js';
 
 export default class CityLayout {
     constructor() {
@@ -13,6 +14,7 @@ export default class CityLayout {
         this.raycaster = this.app.raycaster;
 
         this.texture = this.resource.items.TexturePresentation;
+        this.touchTexture = new TouchTexture(16*4, 9*4, 50, 0.15);
         this.instance = new THREE.Group();
         
         this._initMaterial();
@@ -26,7 +28,7 @@ export default class CityLayout {
             transparent: true,
 
             uniforms: {
-                uTouch: new THREE.Uniform(new THREE.Vector2(0, 0)),
+                uTouchTexture: new THREE.Uniform(this.touchTexture.texture),
                 uTexture: new THREE.Uniform(this.texture)
             }
         });
@@ -49,11 +51,16 @@ export default class CityLayout {
         const intersect = this.raycaster.getItemIntersect(this.presentationPlane.uuid);
 
         if (intersect) {
-            const { x, y } = intersect.point;
-            console.log(intersect);
-            this.materialPresentation.uniforms.uTouch.value.set(x, y);
+            this.touchTexture.addTouch({
+                x: intersect.uv.x,
+                y: intersect.uv.y
+            });
         } else {
             this.materialPresentation.uniforms.uTouch.value.set(10, 10);
         }
+    }
+
+    update() {
+        this.touchTexture.update();
     }
 }

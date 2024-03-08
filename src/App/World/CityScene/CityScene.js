@@ -34,5 +34,6 @@ export default class CityScene {
     update(elapsedTime) {
         this.moon.update(elapsedTime);
         this.stars.update(elapsedTime);
+        this.layout.update();
     }
 }
