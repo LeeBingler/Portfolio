@@ -6,8 +6,8 @@ varying vec3 vPosition;
 
 void main() {
     // make the texture shape for the plane
-    float alpha = texture(uTexture, vUv).r * -1.0 + 1.0;
-    //alpha = 1.0;
+    float alpha = texture(uTexture, vUv).r;
+    alpha = alpha * -1.0 + 1.0;
 
     // make trail out of the canvas texture
     float trail = texture(uTouchTexture, vUv).r * 2.0;

@@ -1,5 +1,7 @@
 import App from '../App.js';
+
 import CityScene from './CityScene/CityScene.js';
+import ButtonsNavigation from './CityScene/ButtonsNavigation.js';
 
 export default class World {
     constructor() {
@@ -10,10 +12,9 @@ export default class World {
 
         this.resources.on('ready', () => {
             this.cityScene = new CityScene();
+            this.buttonsNavigation = new ButtonsNavigation();
             this.scene.add(this.cityScene.instance);
             this.ready = true;
-
-            this.raycaster.pushToTestIntersect(this.cityScene.layout.presentationPlane, 'presentation');
         });
     }
 

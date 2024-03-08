@@ -28,6 +28,11 @@ export default class Camera {
             100
         );
         this.instance.rotation.x = Math.PI * 0.07;
+        
+        /*
+        this.instance.rotation.y += Math.PI * 0.4;
+        this.instance.position.set(-5.8, 0.15, -22.6);
+        */
 
         this.scene.add(this.instance);
     }
