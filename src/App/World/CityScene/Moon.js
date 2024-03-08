@@ -51,6 +51,7 @@ export default class Moon {
             fragmentShader: haloFragmentShader,
             vertexShader: haloVertexShader,
             transparent: true,
+            depthWrite: false
         });
 
         if (this.debug.active) {
