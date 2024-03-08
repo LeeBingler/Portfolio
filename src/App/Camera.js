@@ -28,11 +28,6 @@ export default class Camera {
             100
         );
         this.instance.rotation.x = Math.PI * 0.07;
-        
-        /*
-        this.instance.rotation.y += Math.PI * 0.4;
-        this.instance.position.set(-5.8, 0.15, -22.6);
-        */
 
         this.scene.add(this.instance);
     }
@@ -53,7 +48,7 @@ export default class Camera {
 
             gsap.to(this.instance.rotation, {
                 y: -this.mouse.coordNormalize.x * 0.02,
-                x: this.mouse.coordNormalize.y * 0.02 + Math.PI * 0.07,
+                x: this.mouse.coordNormalize.y * 0.02,
             });
     }
 

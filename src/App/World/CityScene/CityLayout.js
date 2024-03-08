@@ -18,7 +18,6 @@ export default class CityLayout {
     _addItems() {
         this.presentation = new PresentationLayout();
 
-
         this.instance.add(this.presentation.instance);
     }
 

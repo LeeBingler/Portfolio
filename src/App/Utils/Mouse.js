@@ -26,7 +26,6 @@ export default class Mouse extends EventEmitter {
 
             this.coordNormalize.x = (e.clientX / this.sizes.width) * 2 - 1;
             this.coordNormalize.y = -(e.clientY / this.sizes.height) * 2 + 1;
-            console.log(this.coordRaw);
             this.trigger('pointermove');
         });
 
