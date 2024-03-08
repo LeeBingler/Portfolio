@@ -1,6 +1,5 @@
 export default class ButtonsNavigation {
     constructor() {
-
         this._initSection();
         this._createAboutButton();
         
@@ -13,7 +12,7 @@ export default class ButtonsNavigation {
     }
 
     _createAboutButton() {
-       this.aboutBtn = this._createButton('About');
+        this.aboutBtn = this._createButton('About');
         this.aboutBtn.classList.add('buttons');
         this.aboutBtn.classList.add('buttons-about');
 

@@ -18,9 +18,10 @@ body * {
 
 /* Buttons Section */
 .section {
+    width: 100vw;
     position: absolute;
+    left: 0;
     bottom: 10%;
-    left: 50%;
 
     display: flex;
     justify-content: center;
