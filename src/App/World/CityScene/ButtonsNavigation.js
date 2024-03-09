@@ -25,6 +25,7 @@ export default class ButtonsNavigation {
     _createHomeButton() {
         this.homeBtn = this._createButton('Home');
         this.homeBtn.classList.add('buttons-home');
+        this.homeBtn.classList.add('buttons-active');
 
         this.homeBtn.addEventListener('click', () => {
             gsap.to(this.camera.instance.position, {
@@ -38,6 +39,7 @@ export default class ButtonsNavigation {
                 y: 0,
                 duration: this.durationAnimation
             });
+            this._handleActiveClass(this.homeBtn);
         });
 
         this.section.append(this.homeBtn);
@@ -49,9 +51,9 @@ export default class ButtonsNavigation {
 
         this.aboutBtn.addEventListener('click', () => {
             gsap.to(this.camera.instance.position, {
-                x: -5.8,
-                y: 0.15,
-                z: -22.6,
+                x: -5.7,
+                y: 0.25,
+                z: -22.4,
                 duration: this.durationAnimation
             });
             gsap.to(this.camera.instance.rotation, {
@@ -59,6 +61,7 @@ export default class ButtonsNavigation {
                 y: Math.PI * 0.4,
                 duration: this.durationAnimation
             });
+            this._handleActiveClass(this.aboutBtn);
         });
 
         this.section.append(this.aboutBtn);
@@ -80,6 +83,8 @@ export default class ButtonsNavigation {
                 y: Math.PI * -0.55,
                 duration: this.durationAnimation
             });
+
+            this._handleActiveClass(this.contactBtn);
         });
 
         this.section.append(this.contactBtn);
@@ -101,9 +106,30 @@ export default class ButtonsNavigation {
                 y: 0,
                 duration: this.durationAnimation
             });
+
+            this._handleActiveClass(this.portfolioBtn);
         });
 
         this.section.append(this.portfolioBtn);
+    }
+
+    _handleActiveClass(button) {
+        if (button.classList.contains('buttons-active')) {
+            return;
+        }
+        this._removeClassActiveButtons();
+        this._addClassActiveButtons(button);
+    }
+
+    _removeClassActiveButtons() {
+        this.homeBtn.classList.remove('buttons-active');
+        this.aboutBtn.classList.remove('buttons-active');
+        this.portfolioBtn.classList.remove('buttons-active');
+        this.contactBtn.classList.remove('buttons-active');
+    }
+
+    _addClassActiveButtons(button) {
+        button.classList.add('buttons-active');
     }
 
     _createButton(innerText) {

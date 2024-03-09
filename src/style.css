@@ -46,6 +46,11 @@ body * {
     transition: all 0.25s;
 }
 
+.buttons-active {
+    color: black;
+    background:white;
+}
+
 .buttons:hover {
     color: black;
     background:white;
