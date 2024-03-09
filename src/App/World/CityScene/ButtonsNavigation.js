@@ -3,10 +3,12 @@ import gsap from 'gsap';
 import App from '../../App.js';
 
 export default class ButtonsNavigation {
-    constructor() {
+    constructor(citylayout) {
         this.app = new App();
         this.camera = this.app.camera;
-        this.durationAnimation = 1.5;
+        this.durationAnimation = 1.7;
+        this.delayAnimation = 0.25;
+        this.cityLayout = citylayout;
 
         this._initSection();
         this._createHomeButton();
@@ -32,12 +34,14 @@ export default class ButtonsNavigation {
                 x: 0,
                 y: 0,
                 z: 0,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
                 y: 0,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
             this._handleActiveClass(this.homeBtn);
         });
@@ -52,14 +56,16 @@ export default class ButtonsNavigation {
         this.aboutBtn.addEventListener('click', () => {
             gsap.to(this.camera.instance.position, {
                 x: -5.7,
-                y: 0.25,
+                y: 0.28,
                 z: -22.4,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * 0.4,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
             this._handleActiveClass(this.aboutBtn);
         });
@@ -76,12 +82,14 @@ export default class ButtonsNavigation {
                 x: 6.5,
                 y: 0.4,
                 z: -18,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * -0.55,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
             });
 
             this._handleActiveClass(this.contactBtn);
@@ -99,12 +107,18 @@ export default class ButtonsNavigation {
                 x: 0,
                 y: 16,
                 z: -30,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
+
             });
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
                 y: 0,
-                duration: this.durationAnimation
+                duration: this.durationAnimation,
+                delay: this.delayAnimation,
+                onComplete: () => {
+                    this.cityLayout.portfolio.openSection();
+                }
             });
 
             this._handleActiveClass(this.portfolioBtn);
@@ -117,6 +131,7 @@ export default class ButtonsNavigation {
         if (button.classList.contains('buttons-active')) {
             return;
         }
+        this._removeClassActiveSection();
         this._removeClassActiveButtons();
         this._addClassActiveButtons(button);
     }
@@ -130,6 +145,10 @@ export default class ButtonsNavigation {
 
     _addClassActiveButtons(button) {
         button.classList.add('buttons-active');
+    }
+
+    _removeClassActiveSection() {
+        this.cityLayout.portfolio.closeSection();
     }
 
     _createButton(innerText) {

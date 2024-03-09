@@ -55,3 +55,23 @@ body * {
     color: black;
     background:white;
 }
+
+/* Section 3D */
+.portfolio-container {
+    position: absolute;
+    top: 5%;
+    left: calc(50% - 70vw / 2);
+
+    background: black;
+    color: white;
+    height: 75vh;
+    width: 70vw;
+
+    transform: scaleY(0);
+    transition: transform 0.2s;
+    will-change: transform;
+}
+
+.portfolio-container.active {
+    transform: scale(1);
+}

@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 
 import App from '../../App.js';
+import ButtonsNavigation from './ButtonsNavigation.js';
+import PortfolioLayout from './PortfolioLayout.js';
 import PresentationLayout from './PresentationLayout.js';
 
 export default class CityLayout {
@@ -17,6 +19,8 @@ export default class CityLayout {
 
     _addItems() {
         this.presentation = new PresentationLayout();
+        this.portfolio = new PortfolioLayout();
+        this.buttonsNavigation = new ButtonsNavigation(this);
 
         this.instance.add(this.presentation.instance);
     }
