@@ -72,6 +72,27 @@ body * {
     will-change: transform;
 }
 
-.portfolio-container.active {
-    transform: scale(1);
+.about-wrapper {
+    perspective: 2000px;
+    transform-style: preserve-3d;
 }
+
+.about-container {
+    position: absolute;
+    top: 5%;
+    left: 10%;
+
+    background: black;
+    color: white;
+    height: 75vh;
+    width: 40vw;
+
+    transform: scaleY(0) rotateY(50deg);
+    transition: transform 0.2s;
+    will-change: transform;
+}
+
+.active {
+    transform: scale(1) rotateY(50deg);
+}
+

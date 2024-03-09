@@ -66,6 +66,9 @@ export default class ButtonsNavigation {
                 y: Math.PI * 0.4,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                onComplete: () => {
+                    this.cityLayout.about.openSection();
+                }
             });
             this._handleActiveClass(this.aboutBtn);
         });
@@ -149,6 +152,7 @@ export default class ButtonsNavigation {
 
     _removeClassActiveSection() {
         this.cityLayout.portfolio.closeSection();
+        this.cityLayout.about.closeSection();
     }
 
     _createButton(innerText) {
