@@ -11,6 +11,7 @@ export default class ButtonsNavigation {
         this._initSection();
         this._createHomeButton();
         this._createAboutButton();
+        this._createContactButton();
         
         document.body.append(this.section);
     }
@@ -42,6 +43,7 @@ export default class ButtonsNavigation {
 
         this.section.append(this.homeBtn);
     }
+
     _createAboutButton() {
         this.aboutBtn = this._createButton('About');
         this.aboutBtn.classList.add('buttons');
@@ -62,6 +64,28 @@ export default class ButtonsNavigation {
         });
 
         this.section.append(this.aboutBtn);
+    }
+
+    _createContactButton() {
+        this.contactBtn = this._createButton('Contact');
+        this.contactBtn.classList.add('buttons');
+        this.contactBtn.classList.add('buttons-contact');
+
+        this.contactBtn.addEventListener('click', () => {
+            gsap.to(this.camera.instance.position, {
+                x: 6.5,
+                y: 0.4,
+                z: -18,
+                duration: this.durationAnimation
+            });
+            gsap.to(this.camera.instance.rotation, {
+                x: 0,
+                y: Math.PI * -0.55,
+                duration: this.durationAnimation
+            });
+        });
+
+        this.section.append(this.contactBtn);
     }
 
     _createButton(innerText) {
