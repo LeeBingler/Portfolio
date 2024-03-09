@@ -11,6 +11,7 @@ export default class ButtonsNavigation {
         this._initSection();
         this._createHomeButton();
         this._createAboutButton();
+        this._createPortfolioButton();
         this._createContactButton();
         
         document.body.append(this.section);
@@ -23,11 +24,9 @@ export default class ButtonsNavigation {
 
     _createHomeButton() {
         this.homeBtn = this._createButton('Home');
-        this.homeBtn.classList.add('buttons');
         this.homeBtn.classList.add('buttons-home');
 
         this.homeBtn.addEventListener('click', () => {
-
             gsap.to(this.camera.instance.position, {
                 x: 0,
                 y: 0,
@@ -46,7 +45,6 @@ export default class ButtonsNavigation {
 
     _createAboutButton() {
         this.aboutBtn = this._createButton('About');
-        this.aboutBtn.classList.add('buttons');
         this.aboutBtn.classList.add('buttons-about');
 
         this.aboutBtn.addEventListener('click', () => {
@@ -68,7 +66,6 @@ export default class ButtonsNavigation {
 
     _createContactButton() {
         this.contactBtn = this._createButton('Contact');
-        this.contactBtn.classList.add('buttons');
         this.contactBtn.classList.add('buttons-contact');
 
         this.contactBtn.addEventListener('click', () => {
@@ -87,10 +84,32 @@ export default class ButtonsNavigation {
 
         this.section.append(this.contactBtn);
     }
+    
+    _createPortfolioButton() {
+        this.portfolioBtn = this._createButton('Portfolio');
+        this.portfolioBtn.classList.add('buttons-portfolio');
+
+        this.portfolioBtn.addEventListener('click', () => {
+            gsap.to(this.camera.instance.position, {
+                x: 0,
+                y: 16,
+                z: -30,
+                duration: this.durationAnimation
+            });
+            gsap.to(this.camera.instance.rotation, {
+                x: Math.PI * 0.07,
+                y: 0,
+                duration: this.durationAnimation
+            });
+        });
+
+        this.section.append(this.portfolioBtn);
+    }
 
     _createButton(innerText) {
         const button = document.createElement('button');
         button.append(document.createTextNode(innerText));
+        button.classList.add('buttons');
 
         return button;
     }
