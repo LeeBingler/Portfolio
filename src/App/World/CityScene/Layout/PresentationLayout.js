@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 
-import App from '../../App.js';
+import App from '../../../App.js';
 
-import presentationVertexShader from '../../shaders/presentation/vertex.glsl';
-import presentationFragmentShader from '../../shaders/presentation/fragment.glsl';
-import TouchTexture from '../../Utils/TouchTexture.js';
+import presentationVertexShader from '../../../shaders/presentation/vertex.glsl';
+import presentationFragmentShader from '../../../shaders/presentation/fragment.glsl';
+import TouchTexture from '../../../Utils/TouchTexture.js';
 
 export default class PresentationLayout {
     constructor() {

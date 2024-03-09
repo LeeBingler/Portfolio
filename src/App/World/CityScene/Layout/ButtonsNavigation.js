@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 
-import App from '../../App.js';
+import App from '../../../App.js';
 
 export default class ButtonsNavigation {
     constructor(citylayout) {

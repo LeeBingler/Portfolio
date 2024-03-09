@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import App from '../../App.js';
+import App from '../../../App.js';
 
 export default class PortfolioLayout {
     constructor() {
@@ -18,7 +18,7 @@ export default class PortfolioLayout {
         this.section = document.createElement('section');
         this.section.classList.add('portfolio-container');
 
-        this.section.append(document.createTextNode('oui'));
+        this.section.append(document.createTextNode('Portfolio Layout'));
 
         document.body.append(this.section);
     }

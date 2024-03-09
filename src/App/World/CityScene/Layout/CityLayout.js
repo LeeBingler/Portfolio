@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import App from '../../App.js';
+import App from '../../../App.js';
 import ButtonsNavigation from './ButtonsNavigation.js';
 import PortfolioLayout from './PortfolioLayout.js';
 import PresentationLayout from './PresentationLayout.js';

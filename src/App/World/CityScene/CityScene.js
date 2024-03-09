@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import City from './City.js';
 import Moon from './Moon.js';
 import Stars from './Stars.js';
-import CityLayout from './CityLayout.js';
+import CityLayout from './Layout/CityLayout.js';
 
 export default class CityScene {
     constructor() {
