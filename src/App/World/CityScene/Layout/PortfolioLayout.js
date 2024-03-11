@@ -1,26 +1,37 @@
-export default class PortfolioLayout {
+import * as THREE from 'three';
+
+import App from '../../../App.js'
+import HTMLLayoutObj3D from './HtmlLayoutObj3D.js';
+
+export default class PortfolioLayout extends HTMLLayoutObj3D {
     constructor() {
+        super();
+        this.app = new App();
+        this.scene = this.app.scene;
+        this.cssScene = this.app.cssScene;
+
+        this._initPlane();
         this._initSection();
     }
 
+    _initPlane() {
+        this.plane = new THREE.Mesh(
+            new THREE.PlaneGeometry(),
+            new THREE.MeshBasicMaterial()
+        );
+
+        this.plane.position.set(0, 16.5, -32);
+    }
+
     _initSection() {
-        this.section = document.createElement('section');
-        this.section.classList.add('portfolio-container');
+        this.instance = this.createLayoutElem({
+            tag: 'section',
+            className : 'portfolio-container', 
+            childElement : '<h1>Portfolio Section Text Test</h1>', 
+            pos : this.plane.position, 
+            rot : this.plane.rotation
+        });
 
-        this.section.append(document.createTextNode('Portfolio Layout'));
-
-        document.body.append(this.section);
-    }
-
-    openSection() {
-        if (!this.section) return;
-
-        this.section.classList.add('active');
-    }
-
-    closeSection() {
-        if (!this.section) return;
-
-        this.section.classList.remove('active');
+        this.cssScene.add(this.instance);
     }
 }

@@ -28,7 +28,6 @@ export default class Camera {
             100
         );
         this.instance.rotation.x = Math.PI * 0.07;
-
         this.scene.add(this.instance);
     }
 

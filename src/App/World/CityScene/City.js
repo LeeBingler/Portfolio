@@ -15,6 +15,7 @@ export default class City {
 
         this._initMaterial();
         this._initModel();
+        this._getHTMLPlane();
     }
 
     _initMaterial() {
@@ -34,6 +35,16 @@ export default class City {
         })
 
         this.instance.position.y -= 0.1;
+    }
+
+    _getHTMLPlane() {
+        this.htmlPlane = {};
+
+        this.instance.traverse((child) => {
+            if (child.name.endsWith('Html')) {
+                this.htmlPlane[child.name] = child;
+            }
+        });
     }
 
     update(elapsedTime) {}

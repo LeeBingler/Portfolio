@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+
 import App from './App';
 
 export default class Renderer {
@@ -8,6 +9,7 @@ export default class Renderer {
         this.canvas = this.app.canvas;
         this.sizes = this.app.sizes;
         this.scene = this.app.scene;
+        this.scene2 = this.app.scene2;
         this.camera = this.app.camera;
         this.debug = this.app.debug;
 

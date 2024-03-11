@@ -3,13 +3,18 @@
 body * {
     padding: 0;
     margin: 0;
+}
 
+body {
+    overflow: hidden;
+    background: transparent;
 }
 
 #webgl {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
     height: 100vh;
     width: 100vw;
 
@@ -57,42 +62,11 @@ body * {
 }
 
 /* Section 3D */
-.portfolio-container {
-    position: absolute;
-    top: 5%;
-    left: calc(50% - 70vw / 2);
-
+.about-container h1 {
+    color: red;
     background: black;
-    color: white;
-    height: 75vh;
-    width: 70vw;
-
-    transform: scaleY(0);
-    transition: transform 0.2s;
-    will-change: transform;
 }
 
-.about-wrapper {
-    perspective: 2000px;
-    transform-style: preserve-3d;
+.portfolio-container h1 {
+    background: red;
 }
-
-.about-container {
-    position: absolute;
-    top: 5%;
-    left: 10%;
-
-    background: black;
-    color: white;
-    height: 75vh;
-    width: 40vw;
-
-    transform: scaleY(0) rotateY(50deg);
-    transition: transform 0.2s;
-    will-change: transform;
-}
-
-.active {
-    transform: scale(1) rotateY(50deg);
-}
-

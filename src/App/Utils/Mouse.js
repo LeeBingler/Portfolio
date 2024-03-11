@@ -30,7 +30,6 @@ export default class Mouse extends EventEmitter {
         });
 
         window.addEventListener('scroll', (e) => {
-            console.log(e);
             this.trigger('scroll');
         })
     }
