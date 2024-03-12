@@ -25,27 +25,87 @@ export default class ButtonsNavigation extends EventEmitter {
         this.section.classList.add('section');
     }
 
+    _initTimeline() {
+        this.tlGsap = {};
+        this.tlGsap.home = gsap.timeline({paused: true});
+        this.tlGsap.about = gsap.timeline({paused: true});
+        this.tlGsap.portfolio = gsap.timeline({paused: true});
+        this.tlGsap.contact = gsap.timeline({paused: true});
+
+        this.tlGsap.home.to(this.camera.instance.position, {
+            x: 0,
+            y: 0,
+            z: 0,
+            duration: this.durationAnimation,
+            delay: this.delayAnimation,
+        });
+        this.tlGsap.home.to(this.camera.instance.rotation, {
+            x: Math.PI * 0.07,
+            y: 0,
+            duration: this.durationAnimation,
+        }, '<');
+
+        this.tlGsap.about.to(this.camera.instance.position, {
+            x: -5.7,
+            y: 0.28,
+            z: -22.4,
+            duration: this.durationAnimation,
+            delay: this.delayAnimation,
+        });
+        this.tlGsap.about.to(this.camera.instance.rotation, {
+            x: 0,
+            y: Math.PI * 0.4,
+            duration: this.durationAnimation,
+        }, '<');
+
+        this.tlGsap.portfolio.to(this.camera.instance.position, {
+            x: 0,
+            y: 16,
+            z: -30,
+            duration: this.durationAnimation,
+            delay: this.delayAnimation,
+        });
+        this.tlGsap.portfolio.to(this.camera.instance.rotation, {
+            x: Math.PI * 0.07,
+            y: 0,
+            duration: this.durationAnimation,
+        }, '<');
+
+        this.tlGsap.contact.to(this.camera.instance.position, {
+            x: 6.5,
+            y: 0.4,
+            z: -18,
+            duration: this.durationAnimation,
+            delay: this.delayAnimation,
+        });
+        this.tlGsap.contact.to(this.camera.instance.rotation, {
+            x: 0,
+            y: Math.PI * -0.55,
+            duration: this.durationAnimation,
+        }, '<');
+    }
+
     _createHomeButton() {
         this.homeBtn = this._createButton('Home');
         this.homeBtn.classList.add('buttons-active');
 
         this.homeBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
-
             gsap.to(this.camera.instance.position, {
                 x: 0,
                 y: 0,
                 z: 0,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
                 y: 0,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
             });
-
             this._handleActiveClass(this.homeBtn);
         });
 
@@ -57,24 +117,24 @@ export default class ButtonsNavigation extends EventEmitter {
 
         this.aboutBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
-
             gsap.to(this.camera.instance.position, {
                 x: -5.7,
                 y: 0.28,
                 z: -22.4,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * 0.4,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
                 onComplete: () => {
                     this.trigger('endAnimation', ['about']);
                 }
             });
-
             this._handleActiveClass(this.aboutBtn);
         });
 
@@ -86,24 +146,24 @@ export default class ButtonsNavigation extends EventEmitter {
 
         this.contactBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
-
             gsap.to(this.camera.instance.position, {
                 x: 6.5,
                 y: 0.4,
                 z: -18,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * -0.55,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
                 onComplete: () => {
                     this.trigger('endAnimation', ['contact'])
                 },
             });
-
             this._handleActiveClass(this.contactBtn);
         });
 
@@ -115,13 +175,13 @@ export default class ButtonsNavigation extends EventEmitter {
 
         this.portfolioBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
-
             gsap.to(this.camera.instance.position, {
                 x: 0,
                 y: 16,
                 z: -30,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
 
             });
             gsap.to(this.camera.instance.rotation, {
@@ -129,11 +189,11 @@ export default class ButtonsNavigation extends EventEmitter {
                 y: 0,
                 duration: this.durationAnimation,
                 delay: this.delayAnimation,
+                overwrite: 'auto',
                 onComplete: () => {
                     this.trigger('endAnimation', ['portfolio'])
                 }
             });
-
             this._handleActiveClass(this.portfolioBtn);
         });
 

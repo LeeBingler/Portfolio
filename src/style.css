@@ -69,7 +69,8 @@ body {
     height: 95vh;
 
     color: red;
-    background: white;
+    background: black;
+    opacity: 0.85;
 
     transform: scaleY(0);
     will-change: transform;
