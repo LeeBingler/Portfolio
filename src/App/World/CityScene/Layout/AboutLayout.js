@@ -1,27 +1,23 @@
-import { Euler } from 'three';
-
 import App from '../../../App.js'
-import HTMLLayoutObj3D from './HtmlLayoutObj3D.js';
 
-export default class AboutLayout extends HTMLLayoutObj3D {
-    constructor(htmlPlane) {
-        super();
+export default class AboutLayout {
+    constructor() {
         this.app = new App();
-        this.cssScene = this.app.cssScene;
         
-        this.htmlPlane = htmlPlane;
         this._initSection();
     }
 
     _initSection() {
-        this.instance = this.createLayoutElem({
-            tag: 'section',
-            className : 'about-container', 
-            childElement : '<h1>About Section Text Test</h1>', 
-            pos : this.htmlPlane.position, 
-            rot : new Euler(0, -this.htmlPlane.rotation.z, 0)
-        });
+        this.section = document.createElement('section');
+        this.section.classList.add('section-info');
+        this.section.classList.add('about-section');
+    }
 
-        this.cssScene.add(this.instance);
+    addActiveOnSection() {
+        this.section.classList.add('active');
+    }
+
+    removeActiveOnSection() {
+        this.section.classList.remove('active');
     }
 }

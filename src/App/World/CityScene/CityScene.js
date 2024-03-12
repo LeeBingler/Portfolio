@@ -10,7 +10,7 @@ export default class CityScene {
         this.city = new City();
         this.moon = new Moon();
         this.stars = new Stars();
-        this.layout = new CityLayout(this.city.htmlPlane);
+        this.layout = new CityLayout();
 
         this._initCityScene();
     }

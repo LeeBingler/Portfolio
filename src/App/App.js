@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 
 import Renderer from './Renderer';
-import CSSRenderer from './CSSRenderer';
 import Camera from './Camera';
 import Debug from './Utils/Debug';
 import Resources from './Utils/Resources';
@@ -31,11 +30,9 @@ export default class App {
         this.mouse = new Mouse(this.sizes);
         this.time = new Time();
         this.scene = new THREE.Scene();
-        this.cssScene = new THREE.Scene();
         this.resources = new Resources(sources);
         this.camera = new Camera();
         this.renderer = new Renderer();
-        this.cssRenderer = new CSSRenderer(document.querySelector('.scene2-container'))
         this.raycaster = new MyRaycaster();
         this.world = new World();
 
@@ -59,14 +56,12 @@ export default class App {
 
     _resize() {
         this.renderer.resize();
-        this.cssRenderer.resize();
         this.camera.resize();
     }
 
     _update() {
         this.camera.update(this.time.delta);
         this.renderer.update();
-        this.cssRenderer.update();
         this.world.update(this.time.elapsed, this.time.delta);
     }
 }
