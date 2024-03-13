@@ -37,7 +37,7 @@ export default class ButtonsNavigation extends EventEmitter {
                 y: 0,
                 z: 0,
                 duration: this.durationAnimationMove,
-                delay: this.delayAnimationMove,
+                delay: this.delayAnimation,
                 overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {

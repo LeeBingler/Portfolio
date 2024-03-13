@@ -20,7 +20,7 @@ void main() {
     noise *= 2.0;
 
 
-    vec3 color = vec3(1.0, 0.0, 0.0); 
+    vec3 color = vec3(1.0, 0.01, 0.01); 
     color *= vUv.y * 2.0;
 
     gl_FragColor = vec4(vec3(color), 1.0);

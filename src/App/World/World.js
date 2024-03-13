@@ -24,7 +24,7 @@ export default class World {
 
     update(elapsedTime, deltaTime) {
         if (this.ready) {
-            this.cityScene.update(elapsedTime);
+            this.cityScene.update(elapsedTime, deltaTime);
         }
     }
 }

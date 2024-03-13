@@ -24,7 +24,7 @@ export default class CityScene {
             this.city.instance,
             this.moon.instance, 
             this.stars.instance,
-            //this.layout.instance,
+            this.layout.instance,
             this.meteor.instance,
         );
 
@@ -34,10 +34,10 @@ export default class CityScene {
         this.layout.onPointerMove();
     }
 
-    update(elapsedTime) {
+    update(elapsedTime, deltaTime) {
         this.moon.update(elapsedTime);
         this.stars.update(elapsedTime);
-        this.meteor.update(elapsedTime);
+        this.meteor.update(elapsedTime, deltaTime);
         this.layout.update();
     }
 }

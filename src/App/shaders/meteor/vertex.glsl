@@ -18,7 +18,7 @@ void main() {
         texture(uPerlinTexture, vec2(0.1, uTime * 0.2)).r - 0.5
     );
 
-    move *= pow(1.0 - uv.y, 1.5);
+    move *= pow(1.0 - uv.y, 4.0);
     newPosition.xz += move;
  
     newPosition.x -= sin(uv.y * 10.0 + uTime * 10.0) * 0.01;
