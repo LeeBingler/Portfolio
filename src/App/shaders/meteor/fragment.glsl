@@ -16,19 +16,15 @@ void main() {
     float noise = snoise3d(vec3(vUv.x * 5.0 + speedNoiseSpin, vUv.y + speedDropDown, uTime * 0.3) * 1.5);
 
     // smoothEdge
-    noise *= smoothstep(0.0, 1.0, vUv.y);
-    noise *= 5.0;
+    noise *= smoothstep(0.0, 0.5, vUv.y);
+    noise *= 2.0;
 
-    // Color
-    float colorTime = step(0.5, mod(vUv.x + uTime, 0.6));
-    vec3 colorA = vec3(1.0, 0.0, 0.0); // contrast
-    vec3 colorB = vec3(0.0, 0.0, 0.0); // brigthness
-    vec3 colorC = vec3(1.0, 1.0, 1.0);
 
-    vec3 color = mix(colorA, colorB, colorTime);
+    vec3 color = vec3(1.0, 0.0, 0.0); 
+    color *= vUv.y * 2.0;
 
-    gl_FragColor = vec4(vec3(color), noise);
     gl_FragColor = vec4(vec3(color), 1.0);
+    gl_FragColor = vec4(vec3(color), noise);
 
     #include <tonemapping_fragment>
     #include <colorspace_fragment>

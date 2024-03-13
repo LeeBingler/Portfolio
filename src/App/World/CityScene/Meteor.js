@@ -4,7 +4,6 @@ import App from '../../App.js';
 
 import ShaderVertexMeteor from '../../shaders/meteor/vertex.glsl';
 import ShaderFragmentMeteor from '../../shaders/meteor/fragment.glsl';
-import { DoubleSide } from 'three';
 
 export default class Meteor {
     constructor() {
@@ -28,15 +27,15 @@ export default class Meteor {
             1 * 0.3, 
             3 * 0.3,
             100,
-            100
+            100,
+            true
         );
         this.materialTrail = new THREE.ShaderMaterial({
             vertexShader: ShaderVertexMeteor,
             fragmentShader: ShaderFragmentMeteor,
             transparent: true,
-            //side: THREE.DoubleSide,
-            //depthWrite: false,
-            //wireframe: true,
+            side: THREE.DoubleSide,
+            depthWrite: false,
             uniforms: {
                 uTime: new THREE.Uniform(0),
                 
