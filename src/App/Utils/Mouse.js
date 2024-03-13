@@ -29,7 +29,7 @@ export default class Mouse extends EventEmitter {
             this.trigger('pointermove');
         });
 
-        window.addEventListener('scroll', (e) => {
+        window.addEventListener('scroll', () => {
             this.trigger('scroll');
         })
     }

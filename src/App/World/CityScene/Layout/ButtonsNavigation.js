@@ -8,7 +8,8 @@ export default class ButtonsNavigation extends EventEmitter {
         super();
         this.app = new App();
         this.camera = this.app.camera;
-        this.durationAnimation = 1.7;
+        this.durationAnimationMove = 1.7;
+        this.durationAnimationRotate = 1.5;
         this.delayAnimation = 0.25;
 
         this._initSection();
@@ -25,66 +26,6 @@ export default class ButtonsNavigation extends EventEmitter {
         this.section.classList.add('section');
     }
 
-    _initTimeline() {
-        this.tlGsap = {};
-        this.tlGsap.home = gsap.timeline({paused: true});
-        this.tlGsap.about = gsap.timeline({paused: true});
-        this.tlGsap.portfolio = gsap.timeline({paused: true});
-        this.tlGsap.contact = gsap.timeline({paused: true});
-
-        this.tlGsap.home.to(this.camera.instance.position, {
-            x: 0,
-            y: 0,
-            z: 0,
-            duration: this.durationAnimation,
-            delay: this.delayAnimation,
-        });
-        this.tlGsap.home.to(this.camera.instance.rotation, {
-            x: Math.PI * 0.07,
-            y: 0,
-            duration: this.durationAnimation,
-        }, '<');
-
-        this.tlGsap.about.to(this.camera.instance.position, {
-            x: -5.7,
-            y: 0.28,
-            z: -22.4,
-            duration: this.durationAnimation,
-            delay: this.delayAnimation,
-        });
-        this.tlGsap.about.to(this.camera.instance.rotation, {
-            x: 0,
-            y: Math.PI * 0.4,
-            duration: this.durationAnimation,
-        }, '<');
-
-        this.tlGsap.portfolio.to(this.camera.instance.position, {
-            x: 0,
-            y: 16,
-            z: -30,
-            duration: this.durationAnimation,
-            delay: this.delayAnimation,
-        });
-        this.tlGsap.portfolio.to(this.camera.instance.rotation, {
-            x: Math.PI * 0.07,
-            y: 0,
-            duration: this.durationAnimation,
-        }, '<');
-
-        this.tlGsap.contact.to(this.camera.instance.position, {
-            x: 6.5,
-            y: 0.4,
-            z: -18,
-            duration: this.durationAnimation,
-            delay: this.delayAnimation,
-        });
-        this.tlGsap.contact.to(this.camera.instance.rotation, {
-            x: 0,
-            y: Math.PI * -0.55,
-            duration: this.durationAnimation,
-        }, '<');
-    }
-
     _createHomeButton() {
         this.homeBtn = this._createButton('Home');
         this.homeBtn.classList.add('buttons-active');
@@ -95,14 +36,15 @@ export default class ButtonsNavigation extends EventEmitter {
                 x: 0,
                 y: 0,
                 z: 0,
-                duration: this.durationAnimation,
-                delay: this.delayAnimation,
+                duration: this.durationAnimationMove,
+                delay: this.delayAnimationMove,
                 overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
                 y: 0,
-                duration: this.durationAnimation,
+                z: 0,
+                duration: this.durationAnimationRotate,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
             });
@@ -118,17 +60,17 @@ export default class ButtonsNavigation extends EventEmitter {
         this.aboutBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
-                x: -5.7,
-                y: 0.28,
-                z: -22.4,
-                duration: this.durationAnimation,
+                x: -6,
+                y: 0.2,
+                z: -22.3,
+                duration: this.durationAnimationMove,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * 0.4,
-                duration: this.durationAnimation,
+                duration: this.durationAnimationRotate,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
                 onComplete: () => {
@@ -150,14 +92,15 @@ export default class ButtonsNavigation extends EventEmitter {
                 x: 6.5,
                 y: 0.4,
                 z: -18,
-                duration: this.durationAnimation,
+                duration: this.durationAnimationMove,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
                 y: Math.PI * -0.55,
-                duration: this.durationAnimation,
+                z: 0,
+                duration: this.durationAnimationRotate,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
                 onComplete: () => {
@@ -179,7 +122,7 @@ export default class ButtonsNavigation extends EventEmitter {
                 x: 0,
                 y: 16,
                 z: -30,
-                duration: this.durationAnimation,
+                duration: this.durationAnimationMove,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
 
@@ -187,7 +130,8 @@ export default class ButtonsNavigation extends EventEmitter {
             gsap.to(this.camera.instance.rotation, {
                 x: Math.PI * 0.07,
                 y: 0,
-                duration: this.durationAnimation,
+                z: 0,
+                duration: this.durationAnimationRotate,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
                 onComplete: () => {

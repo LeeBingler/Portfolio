@@ -28,6 +28,7 @@ export default class Camera {
             100
         );
         this.instance.rotation.x = Math.PI * 0.07;
+
         this.scene.add(this.instance);
     }
 
@@ -36,8 +37,8 @@ export default class Camera {
         this.controls.lookSpeed = 0.0001;
         this.controls.movementSpeed = 0.05;
         this.controls.constrainVertical = true;
-        this.controls.verticalMin = Math.PI * 0.4;
-        this.controls.verticalMax = Math.PI * 0.5;
+        this.controls.verticalMin = Math.PI * 0.8;
+        this.controls.verticalMax = Math.PI * -0.1;
     }
 
     onPointerMove() {
@@ -47,15 +48,14 @@ export default class Camera {
 
         
         /* TODO: Fix the rotation when we change scene*/
-        /*
-        let yRotation = -this.mouse.coordNormalize.x * 0.02 + this.instance.rotation.y;
-        let xRotation = this.mouse.coordNormalize.y * 0.02 + this.instance.rotation.x;
+        /* We need to rotate from local axis and to add some edges */
+/*
+        let yRotation = -this.mouse.coordNormalize.x * 0.02;
+        let xRotation = this.mouse.coordNormalize.y * 0.02;
 
-        gsap.to(this.instance.rotation, {
-            y: yRotation,
-            x: xRotation,
-        });
-        */
+        this.instance.rotateY(yRotation);
+        this.instance.rotateX(xRotation);
+*/
     }
 
     resize() {

@@ -13,5 +13,10 @@ export default [
         name: 'TexturePresentation',
         type: 'texture',
         path: 'PresentationTexture.png',
+    },
+    {
+        name: 'TexturePerlin',
+        type: 'texture',
+        path: 'textures/perlin.png',
     }
 ];
