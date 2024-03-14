@@ -89,16 +89,16 @@ export default class ButtonsNavigation extends EventEmitter {
         this.contactBtn.addEventListener('click', () => {
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
-                x: 6.5,
-                y: 0.4,
-                z: -18,
+                x: 5.2,
+                y: 0.65,
+                z: -18.2,
                 duration: this.durationAnimationMove,
                 delay: this.delayAnimation,
                 overwrite: 'auto',
             });
             gsap.to(this.camera.instance.rotation, {
                 x: 0,
-                y: Math.PI * -0.55,
+                y: Math.PI * -0.6,
                 z: 0,
                 duration: this.durationAnimationRotate,
                 delay: this.delayAnimation,

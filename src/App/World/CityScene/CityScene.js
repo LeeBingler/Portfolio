@@ -5,6 +5,7 @@ import Moon from './Moon.js';
 import Stars from './Stars.js';
 import CityLayout from './Layout/CityLayout.js';
 import Meteor from './Meteor.js';
+import Portal from './Portal.js';
 
 export default class CityScene {
     constructor() {
@@ -13,6 +14,7 @@ export default class CityScene {
         this.stars = new Stars();
         this.layout = new CityLayout();
         this.meteor = new Meteor();
+        this.portal = new Portal(this.city.portalPlane);
 
         this._initCityScene();
     }
@@ -38,6 +40,7 @@ export default class CityScene {
         this.moon.update(elapsedTime);
         this.stars.update(elapsedTime);
         this.meteor.update(elapsedTime, deltaTime);
+        this.portal.update(elapsedTime);
         this.layout.update();
     }
 }

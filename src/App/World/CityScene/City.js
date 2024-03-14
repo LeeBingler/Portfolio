@@ -15,7 +15,7 @@ export default class City {
 
         this._initMaterial();
         this._initModel();
-        this._getHTMLPlane();
+        this._getPortalPlane();
     }
 
     _initMaterial() {
@@ -37,12 +37,12 @@ export default class City {
         this.instance.position.y -= 0.1;
     }
 
-    _getHTMLPlane() {
-        this.htmlPlane = {};
+    _getPortalPlane() {
+        this.portalPlane = null;
 
         this.instance.traverse((child) => {
-            if (child.name.endsWith('Html')) {
-                this.htmlPlane[child.name] = child;
+            if (child.name == 'PortalPlane') {
+                this.portalPlane = child;
             }
         });
     }

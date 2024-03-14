@@ -200,7 +200,7 @@ export default class Meteor {
     }
 
     _initInstance() {
-        this.instance.position.set(-7.7, 0.05, -23.6);
+        this.instance.position.set(-7.7, 0.15, -23.6);
         this.instance.rotateY(Math.PI * 0.5);
     }
 
