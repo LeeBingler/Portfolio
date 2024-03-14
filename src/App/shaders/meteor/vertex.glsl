@@ -2,6 +2,8 @@ varying vec2 vUv;
 
 uniform float uTime;
 uniform sampler2D uPerlinTexture;
+uniform float uStrengthDisplacement;
+uniform float uFrequenceDisplacement;
 
 vec2 rotate2D(vec2 value, float angle) {
     float s = sin(angle);
@@ -21,8 +23,8 @@ void main() {
     move *= pow(1.0 - uv.y, 4.0);
     newPosition.xz += move;
  
-    newPosition.x -= sin(uv.y * 10.0 + uTime * 10.0) * 0.01;
-    newPosition.z += cos(uv.y * 10.0 + uTime * 10.0) * 0.01;
+    newPosition.x -= sin((uv.y + uTime) * uFrequenceDisplacement) * uStrengthDisplacement;
+    newPosition.z += cos((uv.y + uTime) * uFrequenceDisplacement) * uStrengthDisplacement;
 
     vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
 
