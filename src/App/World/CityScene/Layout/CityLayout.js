@@ -26,7 +26,7 @@ export default class CityLayout {
             this.about.removeActiveOnSection();
             this.portfolio.removeActiveOnSection();
         })
-        
+
         this.buttonsNavigation.on('endAnimation', (str) => {
             if (str == 'about') {
                 this.about.addActiveOnSection();

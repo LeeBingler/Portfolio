@@ -102,7 +102,7 @@ export default class Meteor {
             uColorB: new THREE.Uniform(new THREE.Color('#ff0000')),
         };
 
-        this.geometryMeteor = new THREE.SphereGeometry(0.03, 32, 32);
+        this.geometryMeteor = new THREE.SphereGeometry(0.06, 32, 32);
         this.materialMeteor = new THREE.ShaderMaterial({
             vertexShader: ShaderVertexMoon,
             fragmentShader: ShaderFragmentMoon,

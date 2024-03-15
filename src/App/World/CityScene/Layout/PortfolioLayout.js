@@ -8,9 +8,7 @@ export default class PortfolioLayout {
     }
 
     _initSection() {
-        this.section = document.createElement('section');
-        this.section.classList.add('section-info');
-        this.section.classList.add('portfolio-section');
+        this.section = document.querySelector('.portfolio-section');
     }
 
     addActiveOnSection() {

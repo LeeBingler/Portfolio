@@ -8,9 +8,7 @@ export default class ContactLayout {
     }
 
     _initSection() {
-        this.section = document.createElement('section');
-        this.section.classList.add('section-info');
-        this.section.classList.add('contact-section');
+        this.section = document.querySelector('.contact-section');
     }
 
     addActiveOnSection() {

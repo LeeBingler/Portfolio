@@ -8,9 +8,7 @@ export default class AboutLayout {
     }
 
     _initSection() {
-        this.section = document.createElement('section');
-        this.section.classList.add('section-info');
-        this.section.classList.add('about-section');
+        this.section = document.querySelector('.about-section');
     }
 
     addActiveOnSection() {

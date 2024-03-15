@@ -23,7 +23,7 @@ export default class ButtonsNavigation extends EventEmitter {
 
     _initSection() {
         this.section = document.createElement('section');
-        this.section.classList.add('section');
+        this.section.classList.add('section-buttons');
     }
 
     _createHomeButton() {
@@ -31,6 +31,9 @@ export default class ButtonsNavigation extends EventEmitter {
         this.homeBtn.classList.add('buttons-active');
 
         this.homeBtn.addEventListener('click', () => {
+            if (this.homeBtn.classList.contains('buttons-active')) 
+                return;
+
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
                 x: 0,
@@ -58,6 +61,9 @@ export default class ButtonsNavigation extends EventEmitter {
         this.aboutBtn = this._createButton('About');
 
         this.aboutBtn.addEventListener('click', () => {
+            if (this.aboutBtn.classList.contains('buttons-active')) 
+                return;
+
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
                 x: -6,
@@ -87,6 +93,9 @@ export default class ButtonsNavigation extends EventEmitter {
         this.contactBtn = this._createButton('Contact');
 
         this.contactBtn.addEventListener('click', () => {
+            if (this.contactBtn.classList.contains('buttons-active')) 
+                return;
+
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
                 x: 5.2,
@@ -117,6 +126,9 @@ export default class ButtonsNavigation extends EventEmitter {
         this.portfolioBtn = this._createButton('Portfolio');
 
         this.portfolioBtn.addEventListener('click', () => {
+            if (this.portfolioBtn.classList.contains('buttons-active')) 
+                return;
+
             this.trigger('buttonClick');
             gsap.to(this.camera.instance.position, {
                 x: 0,
