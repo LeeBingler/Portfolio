@@ -113,12 +113,14 @@ export default class Moon {
     _initAnim() {
         this.animation = gsap.timeline({paused: true});
         this.animation.to(this.material.uniforms.uColorB.value, {
-            g: 0.5,
-           duration: 0.5
+            g: 0.3,
+            duration: 0.5,
+            ease: 'none'
         });
         this.animation.to(this.material.uniforms.uColorB.value, {
             g: 0.02,
-            duration: 0.4
+            duration: 0.5,
+            ease: 'none',
         });
     }
 
