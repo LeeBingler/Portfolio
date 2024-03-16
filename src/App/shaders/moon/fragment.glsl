@@ -9,6 +9,7 @@ uniform float uFrequenceNoise;
 
 #include ../includes/simplexNoise3d.glsl
 
+
 void main() {
     vec3 normal = normalize(vNormal);
 

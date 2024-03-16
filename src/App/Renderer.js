@@ -18,6 +18,7 @@ export default class Renderer {
         }
 
         this._setInstance();
+        this._setFog();
     }
 
     _setInstance() {
@@ -39,6 +40,10 @@ export default class Renderer {
                 this.instance.setClearColor(debugParameter.color);
             });
         }
+    }
+
+    _setFog() {
+        this.scene.fog = new THREE.Fog(0xaaaaaa, 0, 120);
     }
 
     resize() {

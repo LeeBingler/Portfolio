@@ -39,12 +39,17 @@ export default class Moon {
 
             uColorA: new THREE.Uniform(new THREE.Color('#9b1a1a')),
             uColorB: new THREE.Uniform(new THREE.Color('#ff7373')),
+
         };
 
         this.material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader,
-            uniforms,
+            fog: true,
+            uniforms: THREE.UniformsUtils.merge([
+                THREE.UniformsLib['fog'],
+                uniforms
+            ]),
         });
 
         this.haloMaterial = new THREE.ShaderMaterial({
