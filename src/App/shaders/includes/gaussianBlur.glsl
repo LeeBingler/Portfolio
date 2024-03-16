@@ -1,4 +1,5 @@
-// Gaussian Blur
+// Gaussian Blur 
+// Created by existical in 2018-10-23
 // Function From : https://www.shadertoy.com/view/Xltfzj
 
 vec4 gaussianBlur(float direction, float quality, float size, sampler2D image, vec2 uv, vec2 resolution) {
