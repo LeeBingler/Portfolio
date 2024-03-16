@@ -1,6 +1,7 @@
 import App from '../../App.js';
 
 import * as THREE from 'three';
+import gsap from 'gsap';
 
 import vertexShader from '../../shaders/moon/vertex.glsl';
 import fragmentShader from '../../shaders/moon/fragment.glsl';
@@ -13,6 +14,8 @@ export default class Moon {
         this.app = new App();
         this.resources = this.app.resources;
         this.camera = this.app.camera;
+        this.raycaster = this.app.raycaster;
+        this.mouse = this.app.mouse;
         this.debug = this.app.debug;
 
         if (this.debug.active) {
@@ -22,6 +25,14 @@ export default class Moon {
         this._initGeo();
         this._initMat();
         this._initMoon();
+        this._initAnim();
+
+        // Make the raycaster detect the moon
+        this.raycaster.pushToTestIntersect(this.moon, 'moon');
+
+        this.mouse.on('click', () => {
+            this.clickMoon();
+        });
     }
 
     _initGeo() {
@@ -97,6 +108,26 @@ export default class Moon {
         this.instance.add(this.moon, this.halo);
 
         this.instance.position.set(0, 25, -70);
+    }
+
+    _initAnim() {
+        this.animation = gsap.timeline({paused: true});
+        this.animation.to(this.material.uniforms.uColorB.value, {
+            g: 0.5,
+           duration: 0.5
+        });
+        this.animation.to(this.material.uniforms.uColorB.value, {
+            g: 0.02,
+            duration: 0.4
+        });
+    }
+
+    clickMoon() {
+        const intersect = this.raycaster.getItemIntersect(this.moon.uuid);
+        if (intersect) {
+            this.animation.seek(0);
+            this.animation.play();
+        }
     }
 
     update(elapsedTime) {
