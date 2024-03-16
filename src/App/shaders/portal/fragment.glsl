@@ -4,6 +4,8 @@ uniform float uTime;
 uniform vec3 uColorIn;
 uniform vec3 uColorOut;
 
+uniform sampler2D uImage;
+uniform float uProgress;
 
 #include ../includes/simplexNoise3d.glsl;
 
@@ -24,8 +26,14 @@ void main() {
     // clamp strenght
     strength = clamp(strength, 0.0, 1.0);
 
+    // image
+    vec3 image = texture2D(uImage, vec2(vUv.y, vUv.x)).rgb;
+
+    // In Color
+    vec3 inColor = mix(uColorIn, image, sin(uProgress * 3.15));
+
     // final color
-    vec3 color = mix(uColorIn, uColorOut, strength);
+    vec3 color = mix(inColor, uColorOut, strength);
 
     gl_FragColor = vec4(color, 1.0);
 }

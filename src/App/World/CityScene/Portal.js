@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import gsap from 'gsap';
 
 import App from '../../App.js';
 
@@ -10,13 +11,27 @@ export default class Portal {
         this.portalPlane = portalPlane;
 
         this.app = new App();
+        this.resources = this.app.resources;
+        this.raycaster = this.app.raycaster;
+        this.mouse = this.app.mouse;
         this.debug = this.app.debug;
 
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('Portal');
         }
-
+        
+        this._initTexture();
         this._initPortal();
+
+        this.raycaster.pushToTestIntersect(this.portalPlane, 'portalPlane');
+
+        this.mouse.on('click', () => {
+            this.onClick();
+        });
+    }
+
+    _initTexture() {
+        this.texture = this.resources.items.TexturePaysage;
     }
 
     _initPortal() {
@@ -28,6 +43,8 @@ export default class Portal {
 
                 uColorIn: new THREE.Uniform(new THREE.Color('#ff0000')),
                 uColorOut: new THREE.Uniform(new THREE.Color('#262626')),
+                uImage: new THREE.Uniform(this.texture),
+                uProgress: new THREE.Uniform(0),
             }
         });
         this.portalPlane.material = this.material;
@@ -44,6 +61,22 @@ export default class Portal {
             this.debugFolder.addColor(debugParam, 'colorOut').onChange(() => {
                 this.material.uniforms.uColorOut.value.set(debugParam.colorOut);
             });
+        }
+    }
+
+    onClick() {
+        const intersect = this.raycaster.getItemIntersect(this.portalPlane.uuid);
+
+        if (intersect) {
+            gsap.fromTo(this.material.uniforms.uProgress, 
+                {
+                    value: 0,
+                }, 
+                {
+                    value: 1,
+                    duration: 2
+                }
+            );
         }
     }
 

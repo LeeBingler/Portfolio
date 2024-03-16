@@ -18,5 +18,10 @@ export default [
         name: 'TexturePerlin',
         type: 'texture',
         path: 'textures/perlin.png',
+    },
+    {
+        name: 'TexturePaysage',
+        type: 'texture',
+        path: 'paysage.jpg',
     }
 ];
