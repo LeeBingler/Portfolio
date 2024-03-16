@@ -24,6 +24,7 @@ export default class Stars {
     _initGeo() {
         const arrayPositions = new Float32Array(this.numberStars * 3);
         const randomScale = new Float32Array(this.numberStars);
+        const randomTime = new Float32Array(this.numberStars);
 
         for (let i = 0; i < this.numberStars; i++) {
             const i3 = i * 3;
@@ -33,12 +34,14 @@ export default class Stars {
             arrayPositions[i3 + 2] = Math.random() * 150;
 
             randomScale[i] = 0.3 + Math.random();
+            randomTime[i] = 1 + Math.random()
         }
 
         this.geometry = new THREE.BufferGeometry();
 
         this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(arrayPositions, 3));
         this.geometry.setAttribute('aRandomScale', new THREE.Float32BufferAttribute(randomScale, 1));
+        this.geometry.setAttribute('aRandomTime', new THREE.Float32BufferAttribute(randomTime, 1));
     }
 
     _initMat() {
@@ -47,6 +50,7 @@ export default class Stars {
 
             uSize: new THREE.Uniform(400),
             uColor: new THREE.Uniform(new THREE.Color('#ffe1e1')),
+            uFrequenceTwinkling: new THREE.Uniform(30),
         };
 
         this.material = new THREE.ShaderMaterial({
