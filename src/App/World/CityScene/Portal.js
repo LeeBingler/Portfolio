@@ -14,6 +14,7 @@ export default class Portal {
         this.resources = this.app.resources;
         this.raycaster = this.app.raycaster;
         this.mouse = this.app.mouse;
+        this.sizes = this.app.sizes;
         this.debug = this.app.debug;
 
         if (this.debug.active) {
@@ -45,6 +46,7 @@ export default class Portal {
                 uColorOut: new THREE.Uniform(new THREE.Color('#262626')),
                 uImage: new THREE.Uniform(this.texture),
                 uProgress: new THREE.Uniform(0),
+                uResolution: new THREE.Uniform(this.sizes.resolution)
             }
         });
         this.portalPlane.material = this.material;

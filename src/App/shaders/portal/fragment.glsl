@@ -6,8 +6,10 @@ uniform vec3 uColorOut;
 
 uniform sampler2D uImage;
 uniform float uProgress;
+uniform vec2 uResolution;
 
 #include ../includes/simplexNoise3d.glsl;
+#include ../includes/gaussianBlur.glsl
 
 void main() {
     // diplace the uv
@@ -26,8 +28,20 @@ void main() {
     // clamp strenght
     strength = clamp(strength, 0.0, 1.0);
 
+    // image movement
+    vec2 uvImage = vec2(vUv.y, vUv.x);
+    uvImage.x += sin(uProgress * 10.0) * 0.002;
+    uvImage.y -= cos(uProgress * 10.0) * 0.002;
+    
     // image
-    vec3 image = texture2D(uImage, vec2(vUv.y, vUv.x)).rgb;
+    vec3 image = gaussianBlur(
+                    16.0,
+                    4.0,
+                    10.0,
+                    uImage,
+                    uvImage,
+                    uResolution
+                ).rgb;
 
     // In Color
     vec3 inColor = mix(uColorIn, image, sin(uProgress * 3.15));
