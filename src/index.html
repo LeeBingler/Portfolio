@@ -12,11 +12,50 @@
             <section class="section-info about-section">
                 <h1 class="title">About</h1>
             </section>
-            <section class="section-info contact-section">
-                <h1 class="title">Contact</h1>
-            </section>
             <section class="section-info portfolio-section">
                 <h1 class="title">Portfolio</h1>
+            </section>
+            <section class="section-info contact-section">
+                <h1 class="title">Contact</h1>
+                <form method="POST" action='https://formspree.io/f/xdornrqb'>
+                    <div class="form-holder">
+                        <label for="Name">
+                            Name
+                            <input class="input-form" id="Name" />
+                        </label>
+                    </div>
+                    <div class="form-holder">
+                        <label for="Email">
+                            Email 
+                            <input class="input-form" id="Email" />
+                        </label>
+                    </div>
+                    <div class="form-holder">
+                        <label for="Message">
+                            Message
+                            <textarea class="textarea-form" id="Message"></textarea>
+                        </label>
+                    </div>
+                    <div class="form-holder submit-holder">
+                        <input 
+                            class="button-form" 
+                            type="submit" 
+                            name="Message" 
+                            value="Submit"
+                        />
+                        <div class="social-container">
+                            <a href="https://twitter.com/LeeBingler" target="_blank">
+                                <img src="images/twitter.png" alt="twitter icon"/>
+                            </a>
+                            <a href="https://discord/com/users/426053611701927949" target="_blank">
+                                <img src="images/discord.png" alt="discord icon"/>
+                            </a>
+                            <a href="https://www.linkedin.com/in/lee-bingler" target="_blank">
+                                <img src="images/linkedin.png" alt="linkedin icon"/>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </section>
         </main>
         <script type="module" src="main.js" id="js"></script>

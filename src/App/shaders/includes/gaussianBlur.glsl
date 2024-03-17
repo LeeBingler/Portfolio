@@ -17,3 +17,4 @@ vec4 gaussianBlur(float direction, float quality, float size, sampler2D image, v
 
     return color ;
 }
+
