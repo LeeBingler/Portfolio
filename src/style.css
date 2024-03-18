@@ -42,6 +42,9 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
 
+    width: 20%;
+    max-width: fit-content;
+
     border: white 2px solid;
     border-radius: 9999px;
 
@@ -237,6 +240,13 @@ body {
 /* Media Query */
 
 @media (max-width: 960px) {
+    .buttons {
+        font-size: 1rem;
+        padding: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
     .about-section, .contact-section {
         width: 90vw;
         left: calc(50% - 90vw / 2);
@@ -245,7 +255,6 @@ body {
         padding-left: 0.2rem;
         padding-right: 0.2rem;
     }
-
 
     .about-holder {
         font-size: 1rem;

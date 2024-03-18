@@ -9,6 +9,7 @@ import TouchTexture from '../../../Utils/TouchTexture.js';
 export default class PresentationLayout {
     constructor() {
         this.app = new App();
+        this.sizes = this.app.sizes;
         this.camera = this.app.camera.instance;
         this.resource = this.app.resources;
         this.raycaster = this.app.raycaster;
