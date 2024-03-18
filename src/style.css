@@ -69,7 +69,7 @@ body {
     position: absolute;
 
     width: 45vw;
-    height: 95vh;
+    height: 85vh;
 
     color: white;
     background-color: rgba(0, 0, 0, 0.85);
@@ -211,12 +211,13 @@ body {
 
 /* About Section */
 .about-holder {
-    height: 75%;
+    height: fit-content;
 
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
     
     padding-top: 2rem;
+    padding-bottom: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;
 
@@ -231,4 +232,31 @@ body {
 
 .about-holder p::selection {
     background-color: #770000;
+}
+
+/* Media Query */
+
+@media (max-width: 960px) {
+    .about-section, .contact-section {
+        width: 90vw;
+        left: calc(50% - 90vw / 2);
+        right: 0;
+
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+
+
+    .about-holder {
+        font-size: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .submit-holder {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.5rem;
+        padding: 0;
+    }
 }
