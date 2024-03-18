@@ -64,7 +64,8 @@ body {
 
 /* Section 3D */
 .section-info {
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: absolute;
 
     width: 45vw;
@@ -178,7 +179,9 @@ body {
 }
 
 .submit-holder {
+    width: 100%;
     display: flex;
+    justify-content: center;
     
     column-gap: 2rem;
 }
