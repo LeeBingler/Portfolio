@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
-import EventEmitter from '../../../Utils/EventEmitter.js';
-import App from '../../../App.js';
+import EventEmitter from '../../Utils/EventEmitter.js';
+import App from '../../App.js';
 
 export default class ButtonsNavigation extends EventEmitter {
     constructor() {
@@ -17,7 +17,7 @@ export default class ButtonsNavigation extends EventEmitter {
         this._createAboutButton();
         this._createPortfolioButton();
         this._createContactButton();
-        
+
         document.body.append(this.section);
     }
 
@@ -31,7 +31,7 @@ export default class ButtonsNavigation extends EventEmitter {
         this.homeBtn.classList.add('buttons-active');
 
         this.homeBtn.addEventListener('click', () => {
-            if (this.homeBtn.classList.contains('buttons-active')) 
+            if (this.homeBtn.classList.contains('buttons-active'))
                 return;
 
             this.trigger('buttonClick');
@@ -61,7 +61,7 @@ export default class ButtonsNavigation extends EventEmitter {
         this.aboutBtn = this._createButton('About');
 
         this.aboutBtn.addEventListener('click', () => {
-            if (this.aboutBtn.classList.contains('buttons-active')) 
+            if (this.aboutBtn.classList.contains('buttons-active'))
                 return;
 
             this.trigger('buttonClick');
@@ -93,7 +93,7 @@ export default class ButtonsNavigation extends EventEmitter {
         this.contactBtn = this._createButton('Contact');
 
         this.contactBtn.addEventListener('click', () => {
-            if (this.contactBtn.classList.contains('buttons-active')) 
+            if (this.contactBtn.classList.contains('buttons-active'))
                 return;
 
             this.trigger('buttonClick');
@@ -121,12 +121,12 @@ export default class ButtonsNavigation extends EventEmitter {
 
         this.section.append(this.contactBtn);
     }
-    
+
     _createPortfolioButton() {
         this.portfolioBtn = this._createButton('Portfolio');
 
         this.portfolioBtn.addEventListener('click', () => {
-            if (this.portfolioBtn.classList.contains('buttons-active')) 
+            if (this.portfolioBtn.classList.contains('buttons-active'))
                 return;
 
             this.trigger('buttonClick');

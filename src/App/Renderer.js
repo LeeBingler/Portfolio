@@ -8,8 +8,7 @@ export default class Renderer {
         this.app = new App();
         this.canvas = this.app.canvas;
         this.sizes = this.app.sizes;
-        this.scene = this.app.scene;
-        this.scene2 = this.app.scene2;
+        this.mainScene = this.app.scene;
         this.camera = this.app.camera;
         this.debug = this.app.debug;
 
@@ -43,7 +42,7 @@ export default class Renderer {
     }
 
     _setFog() {
-        this.scene.fog = new THREE.Fog(0xaaaaaa, 0, 120);
+        this.mainScene.fog = new THREE.Fog(0xaaaaaa, 0, 120);
     }
 
     resize() {
@@ -52,6 +51,8 @@ export default class Renderer {
     }
 
     update() {
-        this.instance.render(this.scene, this.camera.instance);
+        this.instance.setRenderTarget(null);
+        this.instance.setClearColor(0x121212);
+        this.instance.render(this.mainScene, this.camera.orthographic);
     }
 }

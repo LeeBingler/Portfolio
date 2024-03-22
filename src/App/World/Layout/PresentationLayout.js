@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 
-import App from '../../../App.js';
+import App from '../../App.js';
 
-import presentationVertexShader from '../../../shaders/presentation/vertex.glsl';
-import presentationFragmentShader from '../../../shaders/presentation/fragment.glsl';
-import TouchTexture from '../../../Utils/TouchTexture.js';
+import presentationVertexShader from '../../shaders/presentation/vertex.glsl';
+import presentationFragmentShader from '../../shaders/presentation/fragment.glsl';
+import TouchTexture from '../../Utils/TouchTexture.js';
 
 export default class PresentationLayout {
     constructor() {
@@ -16,7 +16,7 @@ export default class PresentationLayout {
 
         this.texture = this.resource.items.TexturePresentation;
         this.touchTexture = new TouchTexture(16, 9, 50, 0.15);
-        
+
         this._initMaterial();
         this._initGeometry();
         this._initInstance();
@@ -45,7 +45,7 @@ export default class PresentationLayout {
 
     _initInstance() {
         this.instance = new THREE.Mesh(
-            this.geometryPresentation, 
+            this.geometryPresentation,
             this.materialPresentation
         );
 
@@ -61,7 +61,7 @@ export default class PresentationLayout {
                 x: intersect.uv.x,
                 y: intersect.uv.y
             });
-        } 
+        }
     }
 
     update() {

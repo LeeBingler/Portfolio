@@ -1,14 +1,14 @@
-import App from '../../../App.js'
+import App from '../../App.js'
 
-export default class PortfolioLayout {
+export default class AboutLayout {
     constructor() {
         this.app = new App();
-        
+
         this._initSection();
     }
 
     _initSection() {
-        this.section = document.querySelector('.portfolio-section');
+        this.section = document.querySelector('.about-section');
     }
 
     addActiveOnSection() {

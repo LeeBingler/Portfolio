@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
-import  { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js';
+import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js';
 
 import App from './App';
 
@@ -17,6 +17,7 @@ export default class Camera {
         this.controls = null;
 
         this._setInstance();
+        this._setOrthographic();
         //this._setControl();
     }
 
@@ -28,8 +29,19 @@ export default class Camera {
             100
         );
         this.instance.rotation.x = Math.PI * 0.07;
+    }
 
-        this.scene.add(this.instance);
+    _setOrthographic() {
+        this.orthographic = new THREE.OrthographicCamera(
+            this.sizes.width / -2,
+            this.sizes.width / 2,
+            this.sizes.height / 2,
+            this.sizes.height / -2,
+            -10,
+            10
+        );
+
+        this.scene.add(this.orthographic);
     }
 
     _setControl() {
@@ -46,10 +58,9 @@ export default class Camera {
         /* Need to remove this for the final release */
         if (this.controls) return;
 
-        
         /* TODO: Fix the rotation when we change scene*/
         /* We need to rotate from local axis and to add some edges */
-/*
+        /*
         let yRotation = -this.mouse.coordNormalize.x * 0.02;
         let xRotation = this.mouse.coordNormalize.y * 0.02;
 
@@ -61,6 +72,12 @@ export default class Camera {
     resize() {
         this.instance.aspect = this.sizes.width / this.sizes.height;
         this.instance.updateProjectionMatrix();
+
+        this.orthographic.left = this.sizes.width / -2;
+        this.orthographic.right = this.sizes.width / 2;
+        this.orthographic.top = this.sizes.height / 2;
+        this.orthographic.bottom = this.sizes.height / -2;
+        this.orthographic.updateProjectionMatrix();
     }
 
     update(deltaTime) {

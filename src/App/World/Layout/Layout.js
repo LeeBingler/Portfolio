@@ -1,13 +1,14 @@
 import * as THREE from 'three';
 
-import App from '../../../App.js';
+import App from '../../App.js';
 import AboutLayout from './AboutLayout.js';
+import ButtonMode from './ButtonMode.js';
 import ButtonsNavigation from './ButtonsNavigation.js';
 import ContactLayout from './ContactLayout.js';
 import PortfolioLayout from './PortfolioLayout.js';
 import PresentationLayout from './PresentationLayout.js';
 
-export default class CityLayout {
+export default class Layout {
     constructor() {
         this.app = new App();
         this.camera = this.app.camera.instance;
@@ -16,10 +17,10 @@ export default class CityLayout {
 
         this.instance = new THREE.Group();
         this.mainSection = document.querySelector('#main-container');
-        
+
         this._addItemsThree();
         this._addItemsHTML();
-    
+
         // Click button handler
         this.buttonsNavigation.on('buttonClick', () => {
             this.contact.removeActiveOnSection();
@@ -49,6 +50,7 @@ export default class CityLayout {
         this.about = new AboutLayout();
         this.contact = new ContactLayout();
         this.buttonsNavigation = new ButtonsNavigation(this);
+        this.buttonMode = new ButtonMode();
 
         this.mainSection.append(this.about.section, this.contact.section, this.portfolio.section);
     }
