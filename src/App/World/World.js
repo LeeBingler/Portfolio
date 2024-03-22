@@ -29,9 +29,9 @@ export default class World {
     }
     
     resize() {
+        this.renderMain.resize();
         this.cityScene.resize();
         this.meadowScene.resize();
-        this.renderMain.resize();
     }
 
     update(elapsedTime, deltaTime) {

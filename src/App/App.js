@@ -55,6 +55,7 @@ export default class App {
     }
 
     _resize() {
+        this.world.resize();
         this.renderer.resize();
         this.camera.resize();
     }

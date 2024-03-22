@@ -42,7 +42,7 @@ export default class RenderMain {
         })
 
         this.plane = new THREE.Mesh(this.geometry, this.material);
-        this.plane.scale.set(this.sizes.width, this.sizes.height, 1);
+        this.resize();
 
         this.mainScene.add(this.plane);
     }

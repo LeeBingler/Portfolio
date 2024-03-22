@@ -73,13 +73,11 @@ export default class Camera {
         this.instance.aspect = this.sizes.width / this.sizes.height;
         this.instance.updateProjectionMatrix();
 
-        /*
         this.orthographic.left = this.sizes.width / -2;
         this.orthographic.right = this.sizes.width / 2;
         this.orthographic.top = this.sizes.height / 2;
         this.orthographic.bottom = this.sizes.height / -2;
         this.orthographic.updateProjectionMatrix();
-        */
     }
 
     update(deltaTime) {

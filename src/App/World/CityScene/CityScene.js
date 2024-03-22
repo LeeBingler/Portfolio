@@ -48,14 +48,13 @@ export default class CityScene {
     }
 
     resize() {
-        this.fbo.width = this.sizes.width;
-        this.fbo.height = this.sizes.height;
+        this.fbo.setSize(this.sizes.width, this.sizes.height);
     }
 
     render(rtt, elapsedTime, deltaTime) {
         this.update(elapsedTime, deltaTime);
 
-        this.renderer.instance.setClearColor(0x121212);
+        this.renderer.instance.setClearColor(0x1212);
 
         if (rtt) {
             this.renderer.instance.setRenderTarget(this.fbo);

@@ -33,8 +33,7 @@ export default class MeadowScene {
     }
 
     resize() {
-        this.fbo.width = this.sizes.width;
-        this.fbo.height = this.sizes.height;
+        this.fbo.setSize(this.sizes.width, this.sizes.height);
     }
 
     render(rtt, elapsedTime, deltaTime) {
