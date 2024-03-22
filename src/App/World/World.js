@@ -27,6 +27,12 @@ export default class World {
             this.layout.onPointerMove();
         }
     }
+    
+    resize() {
+        this.cityScene.resize();
+        this.meadowScene.resize();
+        this.renderMain.resize();
+    }
 
     update(elapsedTime, deltaTime) {
         if (this.ready) {

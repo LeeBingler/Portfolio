@@ -32,6 +32,11 @@ export default class MeadowScene {
         this.grass.update(elapsedTime);
     }
 
+    resize() {
+        this.fbo.width = this.sizes.width;
+        this.fbo.height = this.sizes.height;
+    }
+
     render(rtt, elapsedTime, deltaTime) {
         this.update(elapsedTime, deltaTime);
 
