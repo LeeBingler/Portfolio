@@ -11,24 +11,31 @@ export default class RenderMain {
         this.app = new App();
         this.sizes = this.app.sizes;
         this.resources = this.app.resources;
-
         this.mainScene = this.app.scene;
+        this.debug = this.app.debug;
 
         this.world = new World();
         this.scene1 = this.world.cityScene;
         this.scene2 = this.world.meadowScene;
 
-        this.mode = false;
+        if (this.debug.active) {
+            this.debugFolder = this.debug.ui.addFolder('RenderMain');
+        }
 
+        this._initGeometry();
+        this._initMaterial();
         this._initPlane();
     }
 
-    _initPlane() {
+    _initGeometry() {
+        this.geometry = new THREE.PlaneGeometry(1, 1);
+    }
+
+    _initMaterial() {
         const perlinTexture = this.resources.items.TexturePerlin;
         perlinTexture.wrapS = THREE.RepeatWrapping;
         perlinTexture.wrapT = THREE.RepeatWrapping;
 
-        this.geometry = new THREE.PlaneGeometry(1, 1);
         this.material = new THREE.ShaderMaterial({
             vertexShader,
             fragmentShader,
@@ -42,6 +49,12 @@ export default class RenderMain {
             }
         })
 
+        if (this.debug.active) {
+            this.debugFolder.add(this.material.uniforms.uThreshold, 'value').min(0).max(10).step(0.1).name('uThreshold');
+        }
+    }
+
+    _initPlane() {
         this.plane = new THREE.Mesh(this.geometry, this.material);
         this.resize();
 
@@ -53,6 +66,10 @@ export default class RenderMain {
     }
 
     update(elapsedTime, deltaTime) {
+        /* TODO:
+         * Optimise the render of scene, when a scene is not display do not render it
+         */
+
         this.scene1.render(true, elapsedTime, deltaTime);
         this.scene2.render(true, elapsedTime, deltaTime);
     }
