@@ -1,26 +1,26 @@
 import * as THREE from "three";
-import gsap from "gsap";
 
 import App from "../App";
 
 import vertexShader from "../shaders/transitions/vertex.glsl"
 import fragmentShader from "../shaders/transitions/fragment.glsl"
-import ButtonMode from "./Layout/ButtonMode";
+import World from "./World";
 
 export default class RenderMain {
-    constructor(scene1, scene2) {
+    constructor() {
         this.app = new App();
         this.sizes = this.app.sizes;
         this.resources = this.app.resources;
 
         this.mainScene = this.app.scene;
-        this.scene1 = scene1;
-        this.scene2 = scene2;
+
+        this.world = new World();
+        this.scene1 = this.world.cityScene;
+        this.scene2 = this.world.meadowScene;
 
         this.mode = false;
 
         this._initPlane();
-        this._initChangeButton();
     }
 
     _initPlane() {
@@ -46,31 +46,6 @@ export default class RenderMain {
         this.resize();
 
         this.mainScene.add(this.plane);
-    }
-
-    _initChangeButton() {
-        this.buttonMode = new ButtonMode();
-
-        this.buttonMode.button.addEventListener('click', () => {
-            this.buttonMode.button.disabled = true;
-            this.changeScene();
-        })
-    }
-
-    changeScene() {
-        gsap.fromTo(this.plane.material.uniforms.uTransition,
-            { value: 0 },
-            { value: 1, duration: 2 , onComplete: () => {
-                    const dummy = this.material.uniforms.uTextureScene1.value;
-
-                    this.material.uniforms.uTextureScene1.value = this.material.uniforms.uTextureScene2.value;
-                    this.material.uniforms.uTextureScene2.value = dummy;
-                    this.material.uniforms.uTransition.value = 0;
-
-                    this.buttonMode.button.disabled = false;
-                }
-            }
-        );
     }
 
     resize() {

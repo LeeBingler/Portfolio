@@ -5,8 +5,15 @@ import CityScene from './CityScene/CityScene.js';
 import MeadowScene from './MeadowScene/MeadowScene.js';
 import RenderMain from './RenderMain.js';
 
+let instance = null
+
 export default class World {
     constructor() {
+        if (instance) {
+            return instance;
+        }
+        instance = this;
+
         this.app = new App();
         this.resources = this.app.resources;
 
@@ -29,9 +36,11 @@ export default class World {
     }
     
     resize() {
-        this.renderMain.resize();
-        this.cityScene.resize();
-        this.meadowScene.resize();
+        if (this.ready) {
+            this.renderMain.resize();
+            this.cityScene.resize();
+            this.meadowScene.resize();
+        }
     }
 
     update(elapsedTime, deltaTime) {
