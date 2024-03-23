@@ -38,6 +38,7 @@ export default class RenderMain {
                 uTextureScene1: new THREE.Uniform(this.scene1.fbo.texture),
                 uTextureScene2: new THREE.Uniform(this.scene2.fbo.texture),
                 uTransition: new THREE.Uniform(0),
+                uThreshold: new THREE.Uniform(0.2),
             }
         })
 
@@ -51,15 +52,25 @@ export default class RenderMain {
         this.buttonMode = new ButtonMode();
 
         this.buttonMode.button.addEventListener('click', () => {
-            this.changeScene(this.buttonMode.input.checked);
+            this.buttonMode.button.disabled = true;
+            this.changeScene();
         })
     }
 
-    changeScene(mode) {
+    changeScene() {
         gsap.fromTo(this.plane.material.uniforms.uTransition,
-            { value: mode ? 0 : 1 },
-            { value: mode ? 1 : 0, duration: 2}
-        )
+            { value: 0 },
+            { value: 1, duration: 2 , onComplete: () => {
+                    const dummy = this.material.uniforms.uTextureScene1.value;
+
+                    this.material.uniforms.uTextureScene1.value = this.material.uniforms.uTextureScene2.value;
+                    this.material.uniforms.uTextureScene2.value = dummy;
+                    this.material.uniforms.uTransition.value = 0;
+
+                    this.buttonMode.button.disabled = false;
+                }
+            }
+        );
     }
 
     resize() {

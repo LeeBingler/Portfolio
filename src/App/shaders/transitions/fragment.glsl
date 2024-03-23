@@ -2,6 +2,7 @@ uniform sampler2D uTextureMix;
 uniform sampler2D uTextureScene1;
 uniform sampler2D uTextureScene2;
 uniform float uTransition;
+uniform float uThreshold;
 
 varying vec2 vUv;
 
@@ -12,8 +13,8 @@ void main() {
     // basic transition
     vec3 finalTexture = mix(textureScene1, textureScene2, uTransition);
 
-    float threshold = 0.0;
-    float mixTexture = texture2D(uTextureMix, vUv).r;
+    float threshold = uThreshold;
+    float mixTexture = texture2D(uTextureMix, vUv + uTransition * 0.1).r;
     float r = uTransition * (1.0 + threshold * 2.0) - threshold;
     float mixf = clamp((mixTexture - r) * (1.0/threshold), 0.0, 1.0);
     finalTexture = mix(textureScene1, textureScene2, mixf);

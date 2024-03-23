@@ -7,8 +7,6 @@ export default class ButtonMode {
         }
         buttonModeInstance = this;
 
-        this.nightMode = true;
-
         this._createMainDiv();
         this._createButton();
     }
@@ -21,17 +19,8 @@ export default class ButtonMode {
     }
 
     _createButton() {
-        this.button = document.createElement('label');
-        this.button.classList.add('switch');
-
-
-        this.input = document.createElement('input');
-        this.div = document.createElement('div');
-
-        this.input.type = "checkbox";
-        this.div.classList.add('slider');
-
-        this.button.append(this.input, this.div);
+        this.button = document.createElement('button');
+        this.button.append('Button')
 
         this.mainDiv.appendChild(this.button);
     }
