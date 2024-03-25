@@ -24,7 +24,7 @@ export default class World {
             this.layout = new Layout();
 
             this.cityScene.CityScene.add(this.layout.instance);
-
+            this.meadowScene.MeadowScene.add(this.layout.instance.clone());
             this.ready = true;
         });
     }
