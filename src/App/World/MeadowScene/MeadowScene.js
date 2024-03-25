@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 
 import App from '../../App.js';
-import City from '../CityScene/City.js';
 import Grass from './Grass';
 import Meadow from './Meadow.js';
 import WaterBall from './WaterBall.js';
@@ -17,7 +16,7 @@ export default class MeadowScene {
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height);
 
         this.model = new Meadow();
-        //this.grass = new Grass(10000);
+        this.grass = new Grass(1000000, this.model.ground);
         this.waterBall = new WaterBall();
 
         this._initInstance();
@@ -27,7 +26,7 @@ export default class MeadowScene {
         this.instance = new THREE.Group();
 
         this.instance.add(
-            //this.grass.instance,
+            this.grass.instance,
             this.model.instance,
             this.waterBall.instance,
         );
@@ -36,7 +35,7 @@ export default class MeadowScene {
     }
 
     update(elapsedTime, deltaTime) {
-        //this.grass.update(elapsedTime);
+        this.grass.update(elapsedTime);
     }
 
     resize() {

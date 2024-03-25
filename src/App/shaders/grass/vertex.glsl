@@ -4,6 +4,7 @@ attribute float aHeigth;
 
 uniform float uTime;
 uniform sampler2D uPerlin;
+uniform float uSizePerlin;
 
 varying vec2 vUv;
 varying vec2 vWindUV;
@@ -36,12 +37,11 @@ void main() {
     vec3 axisY = vec3(0.0, 1.0, 0.0);
     newPosition = rotate_vertex_position(newPosition, axisY, aAngle);
 
-
     // set position on the field
     newPosition += aPositionBlade;
 
     // animation wind
-    vec2 windUV = vec2(aPositionBlade.x, aPositionBlade.z) / 2.0;
+    vec2 windUV = vec2(aPositionBlade.x, aPositionBlade.z) / uSizePerlin;
     windUV.x += uTime * 0.1;
     windUV.y += cos(uTime) * 0.1;
 

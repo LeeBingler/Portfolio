@@ -6,16 +6,26 @@ import vertexShaderGrass from '../../shaders/grass/vertex.glsl'
 import fragmentShaderGrass from '../../shaders/grass/fragment.glsl'
 
 export default class Grass {
-    constructor(instancesCount) {
+    constructor(instancesCount, ground) {
         this.instancesCount = instancesCount;
+        this.ground = ground;
 
         this.app = new App();
         this.resources = this.app.resources;
         
+        this._initInfoGround();
         this._initInfoBlade();
         this._initGeometry();
         this._initMaterial();
         this._createInstance();
+    }
+
+    _initInfoGround() {
+        const bdb = this.ground.geometry.boundingBox;
+
+        this.width = Math.abs(bdb.min.x - bdb.max.x);
+        this.heigth = bdb.min.y;
+        this.depth = Math.abs(bdb.min.z - bdb.max.z);
     }
 
     _initInfoBlade() {
@@ -41,7 +51,7 @@ export default class Grass {
     }
 
     _initGeometry() {
-        const BLADE_HEIGHT_VARIATION = 0.6;
+        const BLADE_HEIGHT_VARIATION = 5;
 
         const positionBlade = [];
         const angle = [];
@@ -50,9 +60,9 @@ export default class Grass {
         for (let i = 0; i < this.instancesCount; i++) {
             const i3 = i * 3;
 
-            positionBlade[i3] = (Math.random() - 0.5);
-            positionBlade[i3 + 1] = 0;
-            positionBlade[i3 + 2] = (Math.random() - 0.5);
+            positionBlade[i3] = (Math.random() - 0.5) * this.width;
+            positionBlade[i3 + 1] = this.heigth;
+            positionBlade[i3 + 2] = (Math.random() - 0.5) * this.depth;
 
             angle.push(Math.random() * 180);
 
@@ -82,13 +92,16 @@ export default class Grass {
             uniforms: {
                 uTime: new THREE.Uniform(0),
 
-                uPerlin: new THREE.Uniform(perlinTexture)
+                uPerlin: new THREE.Uniform(perlinTexture),
+                uSizePerlin: new THREE.Uniform(50),
             }
         });
     }
 
     _createInstance() {
         this.instance = new THREE.Mesh(this.geometry, this.material);
+        this.instance.frustumCulled = false;
+        this.instance.position.z -= this.ground.geometry.attributes.position.array[3];
     }
 
     update(elapsedTime) {

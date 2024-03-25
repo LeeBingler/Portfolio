@@ -1,10 +1,9 @@
 import App from '../../App.js';
 
 import * as THREE from 'three';
-import gsap from 'gsap';
 
-import vertexShader from '../../shaders/moon/vertex.glsl';
-import fragmentShader from '../../shaders/moon/fragment.glsl';
+import vertexShader from '../../shaders/waterBall/vertex.glsl';
+import fragmentShader from '../../shaders/waterBall/fragment.glsl';
 
 export default class WaterBall {
     constructor() {
