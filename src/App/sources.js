@@ -5,6 +5,11 @@ export default [
         path: 'models/city.glb',
     },
     {
+        name: 'ModelMeadow',
+        type: 'gltfModel',
+        path: 'models/land.glb',
+    },
+    {
         name: 'TextureCity',
         type: 'texture',
         path: 'textures/BakedTextureFinal.jpg',

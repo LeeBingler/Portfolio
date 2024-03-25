@@ -1,7 +1,9 @@
 import * as THREE from 'three';
 
 import App from '../../App.js';
+import City from '../CityScene/City.js';
 import Grass from './Grass';
+import Meadow from './Meadow.js';
 
 export default class MeadowScene {
     constructor() {
@@ -13,6 +15,7 @@ export default class MeadowScene {
         this.MeadowScene = new THREE.Scene();
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height);
 
+        this.model = new Meadow();
         this.grass = new Grass(10000);
 
         this._initInstance();
@@ -21,9 +24,10 @@ export default class MeadowScene {
     _initInstance() {
         this.instance = new THREE.Group();
 
-        this.instance.add(this.grass.instance);
-
-        this.instance.position.z -= 5;
+        this.instance.add(
+            this.grass.instance,
+            this.model.instance,
+        );
 
         this.MeadowScene.add(this.instance);
     }

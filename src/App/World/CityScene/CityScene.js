@@ -54,7 +54,7 @@ export default class CityScene {
     render(rtt, elapsedTime, deltaTime) {
         this.update(elapsedTime, deltaTime);
 
-        this.renderer.instance.setClearColor(0x1212);
+        this.renderer.instance.setClearColor(0x121212);
 
         if (rtt) {
             this.renderer.instance.setRenderTarget(this.fbo);
