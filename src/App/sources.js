@@ -12,7 +12,7 @@ export default [
     {
         name: 'TextureCity',
         type: 'texture',
-        path: 'textures/BakedTextureFinal.jpg',
+        path: 'textures/BakedTexture5.jpg',
     },
     {
         name: 'TexturePresentation',
