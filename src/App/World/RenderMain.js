@@ -9,9 +9,11 @@ import World from "./World";
 export default class RenderMain {
     constructor() {
         this.app = new App();
+        this.renderer = this.app.renderer;
         this.sizes = this.app.sizes;
         this.resources = this.app.resources;
         this.mainScene = this.app.scene;
+        this.camera = this.app.camera;
         this.debug = this.app.debug;
 
         this.world = new World();
@@ -66,11 +68,18 @@ export default class RenderMain {
     }
 
     update(elapsedTime, deltaTime) {
-        /* TODO:
-         * Optimise the render of scene, when a scene is not display do not render it
-         */
+        if (this.material.uniforms.uTransition.value === 0) {
+            this.scene1.render(false, elapsedTime, deltaTime);
+            this.scene2.update(elapsedTime, deltaTime);
+        } else if (this.material.uniforms.uTransition.value === 1) {
+            this.scene1.update(elapsedTime, deltaTime);
+            this.scene2.render(false, elapsedTime, deltaTime);
+        } else {
+            this.scene1.render(true, elapsedTime, deltaTime);
+            this.scene2.render(true, elapsedTime, deltaTime);
 
-        this.scene1.render(true, elapsedTime, deltaTime);
-        this.scene2.render(true, elapsedTime, deltaTime);
+            this.renderer.instance.setRenderTarget(null);
+            this.renderer.instance.render(this.mainScene, this.camera.orthographic);
+        }
     }
 }

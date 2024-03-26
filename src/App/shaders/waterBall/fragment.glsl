@@ -23,4 +23,7 @@ void main() {
     fresnel = smoothstep(1.0, 0.0, fresnel);
 
     gl_FragColor = vec4(color * fresnel, 1.0);
+
+    #include <tonemapping_fragment>
+    #include <colorspace_fragment>
 }

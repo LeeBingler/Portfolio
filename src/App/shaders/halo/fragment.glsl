@@ -15,4 +15,7 @@ void main() {
     halo *= falloffEdge;
 
     gl_FragColor = vec4(color, halo);
+
+    #include <tonemapping_fragment>
+    #include <colorspace_fragment>
 }

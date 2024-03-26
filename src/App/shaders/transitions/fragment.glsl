@@ -19,4 +19,7 @@ void main() {
 
     // texture transition
     gl_FragColor = vec4(finalTexture, 1.0);
+
+    #include <tonemapping_fragment>
+    #include <colorspace_fragment>
 }

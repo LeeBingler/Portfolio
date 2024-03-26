@@ -43,7 +43,7 @@ export default class Portal {
                 uTime : new THREE.Uniform(0),
 
                 uColorIn: new THREE.Uniform(new THREE.Color('#ff0000')),
-                uColorOut: new THREE.Uniform(new THREE.Color('#262626')),
+                uColorOut: new THREE.Uniform(new THREE.Color('#000000')),
                 uImage: new THREE.Uniform(this.texture),
                 uProgress: new THREE.Uniform(0),
                 uResolution: new THREE.Uniform(this.sizes.resolution)

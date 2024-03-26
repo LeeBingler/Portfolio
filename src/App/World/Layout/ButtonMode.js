@@ -7,6 +7,8 @@ export default class ButtonMode {
         this.world = new World();
         this.renderMain = this.world.renderMain;
 
+        this.displayScene = 0;
+
         this._createMainDiv();
         this._createButton();
         this._createEventListener();
@@ -28,22 +30,10 @@ export default class ButtonMode {
     }
 
     _createEventListener() {
-        const onComplete = () => {
-            const dummy = this.renderMain.material.uniforms.uTextureScene1.value;
-
-            this.renderMain.material.uniforms.uTextureScene1.value = this.renderMain.material.uniforms.uTextureScene2.value;
-            this.renderMain.material.uniforms.uTextureScene2.value = dummy;
-            this.renderMain.material.uniforms.uTransition.value = 0;
-
-            this.button.disabled = false;
-        }
-
         this.button.addEventListener('click', () => {
-            this.button.disabled = true;
-            
-            gsap.fromTo(this.renderMain.material.uniforms.uTransition, 
-                { value: 0 },
-                { value: 1, duration: 2, ease: 'power.in', onComplete: onComplete}
+            this.displayScene = this.displayScene === 0 ? 1 : 0;
+            gsap.to(this.renderMain.material.uniforms.uTransition, 
+                { value: this.displayScene, duration: 2, ease: 'power.in' }
             );
         })
     }

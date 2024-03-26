@@ -48,8 +48,8 @@ export default class Moon {
             uFrequenceNoise: new THREE.Uniform(10),
             uStrengthDisplacement: new THREE.Uniform(0.526),
 
-            uColorA: new THREE.Uniform(new THREE.Color('#9b1a1a')),
-            uColorB: new THREE.Uniform(new THREE.Color('#ff7373')),
+            uColorA: new THREE.Uniform(new THREE.Color('#630303')),
+            uColorB: new THREE.Uniform(new THREE.Color('#e64747')),
 
         };
 
@@ -72,8 +72,8 @@ export default class Moon {
 
         if (this.debug.active) {
             const debugParameter = {
-                colorA: '#9b1a1a',
-                colorB: '#ff7373',
+                colorA: '#630303',
+                colorB: '#e64747',
             };
             this.debugFolder.addColor(debugParameter, 'colorA').onChange(() => {
                 this.material.uniforms.uColorA.value.set(debugParameter.colorA);
