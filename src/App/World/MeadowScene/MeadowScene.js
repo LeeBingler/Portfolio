@@ -1,5 +1,9 @@
 import * as THREE from 'three';
 
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
 import App from '../../App.js';
 import Grass from './Grass';
 import Meadow from './Meadow.js';
@@ -13,7 +17,7 @@ export default class MeadowScene {
         this.sizes = this.app.sizes;
 
         this.MeadowScene = new THREE.Scene();
-        this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height);
+        this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.model = new Meadow();
         this.grass = new Grass(1000000, this.model.ground);
