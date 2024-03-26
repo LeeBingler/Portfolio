@@ -25,7 +25,7 @@ void main() {
     float sizeTwinkle = sin(progress * 30.0) * 0.5 + 0.5;
     sizeTwinkle = 1.0 - sizeTwinkle * twinkleProgress;
 
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(newPosition, 1.0);
+    gl_Position = uResolution.y * projectionMatrix * viewMatrix * modelMatrix * vec4(newPosition, 1.0);
 
     gl_PointSize = uSize * aScale * uResolution.y * sizeTwinkle;
 }

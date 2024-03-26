@@ -1,4 +1,5 @@
 uniform float uSize;
+uniform vec2 uResolution;
 uniform float uTime;
 uniform float uFrequenceTwinkling;
 
@@ -15,7 +16,7 @@ void main() {
     // Twinkling
     float sizeTwinkle = sin(uTime * aRandomTime * uFrequenceTwinkling) * 0.2 + 1.0;
 
-    gl_PointSize = uSize * aRandomScale * sizeTwinkle;
+    gl_PointSize = uSize * aRandomScale * sizeTwinkle * uResolution.y;
     gl_PointSize *= 1.0 / -viewPosition.z;
 
     // varying

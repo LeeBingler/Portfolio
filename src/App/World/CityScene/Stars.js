@@ -8,6 +8,7 @@ import fragmentShader from '../../shaders/stars/fragment.glsl';
 export default class Stars {
     constructor(numberStars = 1000) {
         this.app = new App();
+        this.sizes = this.app.sizes;
         this.debug = this.app.debug;
 
         this.numberStars = numberStars;
@@ -48,7 +49,8 @@ export default class Stars {
         const uniforms = {
             uTime: new THREE.Uniform(0),
 
-            uSize: new THREE.Uniform(400),
+            uSize: new THREE.Uniform(0.5),
+            uResolution: new THREE.Uniform(this.sizes.resolution),
             uColor: new THREE.Uniform(new THREE.Color('#ffe1e1')),
             uFrequenceTwinkling: new THREE.Uniform(30),
         };
