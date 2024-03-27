@@ -17,7 +17,6 @@ export default class Renderer {
         }
 
         this._setInstance();
-        this._setFog();
     }
 
     _setInstance() {
@@ -25,6 +24,7 @@ export default class Renderer {
             canvas: this.canvas,
             antialias: true,
         });
+        //this.instance.toneMapping = THREE.CineonToneMapping;
         this.instance.setSize(this.sizes.width, this.sizes.height);
         this.instance.setPixelRatio(this.sizes.pixelRatio);
         this.instance.setClearColor(0x121212);
@@ -37,10 +37,6 @@ export default class Renderer {
                 this.instance.setClearColor(debugParameter.color);
             });
         }
-    }
-
-    _setFog() {
-        this.mainScene.fog = new THREE.Fog(0xaaaaaa, 0, 120);
     }
 
     resize() {

@@ -16,7 +16,7 @@ export default class CityScene {
         this.sizes = this.app.sizes;
 
         this.CityScene = new THREE.Scene();
-        this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, {samples: 4, type: THREE.HalfFloatType});
+        this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.city = new City();
         this.moon = new Moon();

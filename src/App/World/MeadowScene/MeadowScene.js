@@ -1,9 +1,5 @@
 import * as THREE from 'three';
 
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
-
 import App from '../../App.js';
 import Grass from './Grass';
 import Meadow from './Meadow.js';
