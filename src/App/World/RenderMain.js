@@ -17,8 +17,8 @@ export default class RenderMain {
         this.debug = this.app.debug;
 
         this.world = new World();
-        this.scene1 = this.world.cityScene;
-        this.scene2 = this.world.meadowScene;
+        this.scene2 = this.world.cityScene;
+        this.scene1 = this.world.meadowScene;
 
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('RenderMain');

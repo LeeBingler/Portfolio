@@ -15,6 +15,11 @@ export default [
         path: 'textures/BakedTexture5.jpg',
     },
     {
+        name: 'TextureLand',
+        type: 'texture',
+        path: 'textures/BakedTextureLand.jpg',
+    },
+    {
         name: 'TexturePresentation',
         type: 'texture',
         path: 'PresentationTexture.png',

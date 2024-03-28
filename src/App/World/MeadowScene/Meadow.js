@@ -9,31 +9,29 @@ export default class Meadow {
         this.model = this.resources.items.ModelMeadow;
         this.debug = this.app.debug;
         
-        this.materials = {};
-        this.toClean = [];
-
+        this._initTexture();
+        this._initMaterial();
         this._initModel();
         this._getGround();
+    }
+
+    _initTexture() {
+        this.texture = this.resources.items.TextureLand;
+        this.texture.flipY = false;
+        this.texture.colorSpace = THREE.SRGBColorSpace;
+    }
+
+    _initMaterial() {
+        this.material = new THREE.MeshBasicMaterial({
+            map: this.texture,
+        })
     }
 
     _initModel() {
         this.instance = this.model.scene;
         
         this.instance.traverse((child) => {
-            if (!child.isMesh) {
-                return ;
-            }
-            const hexString = child.material.color.getHexString();
-
-            if (!this.materials[hexString]) {
-                this.materials[hexString] = new THREE.MeshBasicMaterial({color: '#' + hexString});
-                this.toClean.push(child.material);
-            }
-
-            child.material = this.materials[hexString];
-
-            this.toClean.forEach((color) => color.dispose())
-
+            child.material = this.material;
         });
     }
 
@@ -41,7 +39,7 @@ export default class Meadow {
         this.instance.traverse((child) => {
             if (child.name === "Ground") {
                 this.ground = child;
-                this.ground.material.color.set(0,0,0);
+                this.ground.material = new THREE.MeshBasicMaterial({color: 'black'})
             }
         })
     }
