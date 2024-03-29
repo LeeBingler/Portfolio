@@ -33,6 +33,8 @@ export default class City {
         this.instance.traverse((child) => {
             child.material = this.material;
         })
+        
+        console.log(this.instance);
 
         this.instance.position.y -= 0.1;
     }
