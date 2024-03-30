@@ -4,7 +4,7 @@ varying vec2 vUv;
 
 void main() {
     float pattern = 1.0 - length(gl_PointCoord - 0.5);
-    pattern = pow(pattern, 5.0);
+    pattern = pow(pattern, 10.0);
 
     vec3 color = uColor * pattern;
 
