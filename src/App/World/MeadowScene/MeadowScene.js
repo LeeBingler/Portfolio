@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import App from '../../App.js';
+import Cloud from './Cloud.js';
 import Grass from './Grass';
 import Meadow from './Meadow.js';
 import WaterBall from './WaterBall.js';
@@ -18,6 +19,7 @@ export default class MeadowScene {
         this.model = new Meadow();
         this.grass = new Grass(1000000, this.model.ground);
         this.waterBall = new WaterBall();
+        this.cloud = new Cloud(this.MeadowScene);
 
         this._initInstance();
     }
@@ -29,6 +31,7 @@ export default class MeadowScene {
             this.grass.instance,
             this.model.instance,
             this.waterBall.instance,
+            this.cloud.instance,
         );
 
         this.MeadowScene.add(this.instance);
@@ -36,6 +39,7 @@ export default class MeadowScene {
 
     update(elapsedTime, deltaTime) {
         this.grass.update(elapsedTime);
+        this.cloud.update(elapsedTime);
     }
 
     resize() {

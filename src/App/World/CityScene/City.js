@@ -34,8 +34,6 @@ export default class City {
             child.material = this.material;
         })
         
-        console.log(this.instance);
-
         this.instance.position.y -= 0.1;
     }
 

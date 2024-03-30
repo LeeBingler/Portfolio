@@ -33,5 +33,10 @@ export default [
         name: 'TexturePaysage',
         type: 'texture',
         path: 'paysage.jpg',
+    },
+    {
+        name: 'TextureCloud',
+        type: 'texture',
+        path: 'textures/cloud.png',
     }
 ];
