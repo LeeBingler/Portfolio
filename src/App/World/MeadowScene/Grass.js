@@ -51,7 +51,7 @@ export default class Grass {
     }
 
     _initGeometry() {
-        const BLADE_HEIGHT_VARIATION = 5;
+        const BLADE_HEIGHT_VARIATION = 3;
 
         const positionBlade = [];
         const angle = [];
@@ -66,7 +66,7 @@ export default class Grass {
 
             angle.push(Math.random() * 180);
 
-            heigthVariation.push((Math.random() - 0.5) * BLADE_HEIGHT_VARIATION + 1);
+            heigthVariation.push(Math.random() * BLADE_HEIGHT_VARIATION + 1);
         }
 
         this.geometry = new THREE.InstancedBufferGeometry();
