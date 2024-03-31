@@ -47,6 +47,14 @@ export default class App {
         this.mouse.on('pointermove', () => {
             this._onPointerMove();
         })
+
+        this.mouse.on('click', () => {
+            this._onClick();
+        });
+    }
+
+    _onClick() {
+        this.world.onClick();
     }
 
     _onPointerMove() {

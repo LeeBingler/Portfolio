@@ -6,6 +6,7 @@ import Meadow from '../Meadow.js';
 import Grass from '../Grass.js';
 import Moon from './Moon.js';
 import Stars from './Stars.js';
+import Scarecrow from './Scarecrow.js';
 
 export default class MeadowSceneNight {
     constructor() {
@@ -25,6 +26,7 @@ export default class MeadowSceneNight {
             new THREE.Color("#00aa00"),
             new THREE.Color("#008800"),
         );
+        this.scarecrow = new Scarecrow(this.model.scarecrow);
         this.moon = new Moon();
         this.stars = new Stars();
 

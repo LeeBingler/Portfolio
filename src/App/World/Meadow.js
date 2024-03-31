@@ -16,7 +16,7 @@ export default class Meadow {
         this._initTexture();
         this._initMaterial();
         this._initModel();
-        this._getGround();
+        this._getMultipleThings();
     }
 
     _initTexture() {
@@ -44,11 +44,15 @@ export default class Meadow {
         this.instance.position.y -= 0.01;
     }
 
-    _getGround() {
+    _getMultipleThings() {
         this.instance.traverse((child) => {
             if (child.name === "Ground") {
                 this.ground = child;
                 this.ground.material = new THREE.MeshBasicMaterial({color: 'green'})
+            }
+
+            if (child.name === "Scarecrow") {
+                this.scarecrow = child;
             }
         })
     }

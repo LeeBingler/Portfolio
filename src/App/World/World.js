@@ -29,6 +29,12 @@ export default class World {
         });
     }
 
+    onClick() {
+        if (this.ready) {
+            this.meadowSceneNight.scarecrow.onClick();
+        }
+    }
+
     onPointerMove() {
         if (this.ready) {
             this.layout.onPointerMove();
