@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import App from "../../App.js";
 
 import Meadow from '../Meadow.js';
-import Grass from './Grass.js';
+import Grass from '../Grass.js';
 import Moon from './Moon.js';
 import Stars from './Stars.js';
 
@@ -19,7 +19,12 @@ export default class MeadowSceneNight {
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.model = new Meadow(this.texture, true);
-        this.grass = new Grass(400000, this.model.ground);
+        this.grass = new Grass(
+            400000, 
+            this.model.ground,
+            new THREE.Color("#00aa00"),
+            new THREE.Color("#008800"),
+        );
         this.moon = new Moon();
         this.stars = new Stars();
 

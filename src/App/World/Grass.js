@@ -1,14 +1,16 @@
 import * as THREE from 'three';
 
-import App from "../../App.js"
+import App from "../App.js"
 
-import vertexShaderGrass from '../../shaders/grass/vertex.glsl'
-import fragmentShaderGrass from '../../shaders/grass/fragment.glsl'
+import vertexShaderGrass from '../shaders/grass/vertex.glsl'
+import fragmentShaderGrass from '../shaders/grass/fragment.glsl'
 
 export default class Grass {
-    constructor(instancesCount, ground) {
+    constructor(instancesCount, ground, colorA, colorB) {
         this.instancesCount = instancesCount;
         this.ground = ground;
+        this.colorA = colorA;
+        this.colorB = colorB;
 
         this.app = new App();
         this.resources = this.app.resources;
@@ -95,8 +97,8 @@ export default class Grass {
                 uPerlin: new THREE.Uniform(perlinTexture),
                 uSizePerlin: new THREE.Uniform(50),
 
-                uColorA: new THREE.Uniform(new THREE.Color("#00aa00")),
-                uColorB: new THREE.Uniform(new THREE.Color("#008800")),
+                uColorA: new THREE.Uniform(this.colorA),
+                uColorB: new THREE.Uniform(this.colorB),
             }
         });
     }

@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 import App from '../../App.js';
 import Meadow from '../Meadow.js';
-import Grass from './Grass.js';
+import Grass from '../Grass.js';
 import Cloud from './Cloud.js';
 import WaterBall from './WaterBall.js';
 
@@ -18,7 +18,12 @@ export default class MeadowSceneDay {
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.model = new Meadow(this.texture);
-        this.grass = new Grass(400000, this.model.ground);
+        this.grass = new Grass(
+            400000, 
+            this.model.ground,
+            new THREE.Color("#00ff00"),
+            new THREE.Color("#00af00"),
+        );
         this.waterBall = new WaterBall();
         this.cloud = new Cloud(this.scene);
 
