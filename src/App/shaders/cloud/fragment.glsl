@@ -12,8 +12,8 @@ void main() {
 
     // animation
     vec2 uv = vUv;
-    uv.y += cos(uTime * 0.25) * 0.05;
-    uv.x += sin(uTime * 0.2) * 0.07;
+    uv.y += cos(uTime * 0.25) * 0.1;
+    uv.x += sin(uTime * 0.2) * 0.12;
 
     gl_FragColor = texture2D( uTexture, uv );
     gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 );
