@@ -25,11 +25,6 @@ export default [
         path: 'textures/perlin.png',
     },
     {
-        name: 'TexturePaysage',
-        type: 'texture',
-        path: 'paysage.jpg',
-    },
-    {
         name: 'TextureCloud',
         type: 'texture',
         path: 'textures/cloud.png',

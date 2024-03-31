@@ -33,8 +33,8 @@ export default class WaterBall {
             uFrequenceNoise: new THREE.Uniform(10),
             uStrengthDisplacement: new THREE.Uniform(0.526),
 
-            uColorA: new THREE.Uniform(new THREE.Color('#9b1a1a')),
-            uColorB: new THREE.Uniform(new THREE.Color('#ff7373')),
+            uColorA: new THREE.Uniform(new THREE.Color('#1a1a9b')),
+            uColorB: new THREE.Uniform(new THREE.Color('#7373ff')),
 
         };
 

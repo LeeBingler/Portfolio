@@ -39,6 +39,8 @@ export default class Meadow {
         this.instance.traverse((child) => {
             child.material = this.material;
         });
+
+        this.instance.position.y -= 0.01;
     }
 
     _getGround() {
