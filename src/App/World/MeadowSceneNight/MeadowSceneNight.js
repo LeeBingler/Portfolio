@@ -19,7 +19,7 @@ export default class MeadowSceneNight {
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.model = new Meadow(this.texture, true);
-        this.grass = new Grass(1000000, this.model.ground);
+        this.grass = new Grass(900000, this.model.ground);
         this.moon = new Moon();
         this.stars = new Stars();
 

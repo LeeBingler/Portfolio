@@ -24,10 +24,8 @@ export default class Renderer {
             canvas: this.canvas,
             antialias: true,
         });
-        //this.instance.toneMapping = THREE.CineonToneMapping;
         this.instance.setSize(this.sizes.width, this.sizes.height);
         this.instance.setPixelRatio(this.sizes.pixelRatio);
-        this.instance.setClearColor(0x121212);
 
         if (this.debug.active) {
             const debugParameter = {};
