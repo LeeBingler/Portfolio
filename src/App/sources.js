@@ -1,18 +1,13 @@
 export default [
     {
-        name: 'ModelCity',
-        type: 'gltfModel',
-        path: 'models/city.glb',
-    },
-    {
         name: 'ModelMeadow',
         type: 'gltfModel',
         path: 'models/land.glb',
     },
     {
-        name: 'TextureCity',
+        name: 'TextureLandNight',
         type: 'texture',
-        path: 'textures/BakedTexture5.jpg',
+        path: 'textures/BakedTextureLandNight4k.jpg',
     },
     {
         name: 'TextureLand',

@@ -1,8 +1,8 @@
 import App from '../App.js';
 
 import Layout from './Layout/Layout.js';
-import CityScene from './CityScene/CityScene.js';
-import MeadowScene from './MeadowScene/MeadowScene.js';
+import MeadowSceneNight from './MeadowSceneNight/MeadowSceneNight.js'
+import MeadowSceneDay from './MeadowSceneDay/MeadowSceneDay.js';
 import RenderMain from './RenderMain.js';
 
 let instance = null
@@ -18,13 +18,13 @@ export default class World {
         this.resources = this.app.resources;
 
         this.resources.on('ready', () => {
-            this.cityScene = new CityScene();
-            this.meadowScene = new MeadowScene();
+            this.meadowSceneNight = new MeadowSceneNight();
+            this.meadowSceneDay = new MeadowSceneDay();
             this.renderMain = new RenderMain(this.meadowScene, this.cityScene);
             this.layout = new Layout();
 
-            this.cityScene.CityScene.add(this.layout.instance);
-            this.meadowScene.MeadowScene.add(this.layout.instance.clone());
+            this.meadowSceneNight.scene.add(this.layout.instance);
+            this.meadowSceneDay.scene.add(this.layout.instance.clone());
             this.ready = true;
         });
     }
@@ -38,8 +38,8 @@ export default class World {
     resize() {
         if (this.ready) {
             this.renderMain.resize();
-            this.cityScene.resize();
-            this.meadowScene.resize();
+            this.meadowSceneDay.resize();
+            this.meadowSceneNight.resize();
         }
     }
 
