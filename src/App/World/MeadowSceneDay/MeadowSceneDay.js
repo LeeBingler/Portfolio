@@ -18,7 +18,7 @@ export default class MeadowSceneDay {
         this.fbo = new THREE.WebGLRenderTarget(this.sizes.width, this.sizes.height, { samples: 4, type: THREE.HalfFloatType });
 
         this.model = new Meadow(this.texture);
-        this.grass = new Grass(900000, this.model.ground);
+        this.grass = new Grass(500000, this.model.ground);
         this.waterBall = new WaterBall();
         this.cloud = new Cloud(this.scene);
 

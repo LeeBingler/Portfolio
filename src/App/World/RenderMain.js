@@ -70,9 +70,7 @@ export default class RenderMain {
     update(elapsedTime, deltaTime) {
         if (this.material.uniforms.uTransition.value === 0) {
             this.scene1.render(false, elapsedTime, deltaTime);
-            this.scene2.update(elapsedTime, deltaTime);
         } else if (this.material.uniforms.uTransition.value === 1) {
-            this.scene1.update(elapsedTime, deltaTime);
             this.scene2.render(false, elapsedTime, deltaTime);
         } else {
             this.scene1.render(true, elapsedTime, deltaTime);

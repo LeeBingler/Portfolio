@@ -30,7 +30,7 @@ export default class Grass {
 
     _initInfoBlade() {
         //const VERTICE_BLADE = 5;
-        const BLADE_WIDTH = 0.01;
+        const BLADE_WIDTH = 0.04;
         const BLADE_HEIGHT = 0.1;
 
         this.positionVertices = [];
