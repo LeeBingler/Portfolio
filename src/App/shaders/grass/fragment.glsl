@@ -3,12 +3,14 @@ varying vec2 vWindUV;
 
 uniform sampler2D uPerlin;
 uniform float uTime;
+uniform vec3 uColorA;
+uniform vec3 uColorB;
 
 void main() {
     float noise = texture2D(uPerlin, vWindUV).r;
 
-    vec3 color = mix(vec3(0.0, 0.1, 0.0), vec3(0.0, 0.7, 0.0), vUv.y);
-    color -= noise * 0.4;
+    vec3 color = mix(uColorA, uColorB, vUv.y);
+    color -= noise * 0.3;
 
     gl_FragColor = vec4(color, 1.0);
 

@@ -4,13 +4,14 @@ import App from "../App.js";
 
 export default class Meadow {
     constructor(texture, clone) {
+        this.texture = texture;
+        this.clone = clone;
+
+
         this.app = new App();
         this.resources = this.app.resources;
         this.model = this.resources.items.ModelMeadow;
         this.debug = this.app.debug;
-        
-        this.texture = texture;
-        this.clone = clone;
 
         this._initTexture();
         this._initMaterial();

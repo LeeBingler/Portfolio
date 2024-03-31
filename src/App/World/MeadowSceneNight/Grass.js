@@ -95,8 +95,8 @@ export default class Grass {
                 uPerlin: new THREE.Uniform(perlinTexture),
                 uSizePerlin: new THREE.Uniform(50),
 
-                uColorA: new THREE.Uniform(new THREE.Color("#00ff00")),
-                uColorB: new THREE.Uniform(new THREE.Color("#00aa00")),
+                uColorA: new THREE.Uniform(new THREE.Color("#00aa00")),
+                uColorB: new THREE.Uniform(new THREE.Color("#008800")),
             }
         });
     }
