@@ -48,7 +48,7 @@ export default class Meadow {
         this.instance.traverse((child) => {
             if (child.name === "Ground") {
                 this.ground = child;
-                this.ground.material = new THREE.MeshBasicMaterial({color: 'black'})
+                this.ground.material = new THREE.MeshBasicMaterial({color: 'green'})
             }
         })
     }
