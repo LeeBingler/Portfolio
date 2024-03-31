@@ -1,12 +1,12 @@
 import * as THREE from 'three';
 
 import App from "../App.js";
+import Scarecrow from './Scarecrow.js';
 
 export default class Meadow {
     constructor(texture, clone) {
         this.texture = texture;
         this.clone = clone;
-
 
         this.app = new App();
         this.resources = this.app.resources;
@@ -17,6 +17,7 @@ export default class Meadow {
         this._initMaterial();
         this._initModel();
         this._getMultipleThings();
+        this._initSpecial();
     }
 
     _initTexture() {
@@ -55,5 +56,13 @@ export default class Meadow {
                 this.scarecrow = child;
             }
         })
+    }
+
+    _initSpecial() {
+        this.scarecrow = new Scarecrow(this.scarecrow);
+    }
+
+    onClick() {
+        this.scarecrow.onClick();
     }
 }

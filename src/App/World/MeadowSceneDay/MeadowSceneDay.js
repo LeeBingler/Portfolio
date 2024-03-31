@@ -43,6 +43,10 @@ export default class MeadowSceneDay {
         this.scene.add(this.instance);
     }
 
+    onClick() {
+        this.model.onClick();
+    }
+
     update(elapsedTime, deltaTime) {
         this.grass.update(elapsedTime);
         this.cloud.update(elapsedTime);

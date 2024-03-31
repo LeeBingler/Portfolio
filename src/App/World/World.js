@@ -31,7 +31,8 @@ export default class World {
 
     onClick() {
         if (this.ready) {
-            this.meadowSceneNight.scarecrow.onClick();
+            this.meadowSceneNight.onClick();
+            this.meadowSceneDay.onClick();
         }
     }
 
