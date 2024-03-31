@@ -28,7 +28,12 @@ export default class MeadowSceneNight {
         this.moon = new Moon();
         this.stars = new Stars();
 
+        this._colorGround();
         this._initScene();
+    }
+
+    _colorGround() {
+        this.model.ground.material = new THREE.MeshBasicMaterial({color: "#00aa00"});
     }
 
     _initScene() {

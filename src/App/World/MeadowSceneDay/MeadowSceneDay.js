@@ -26,8 +26,13 @@ export default class MeadowSceneDay {
         );
         this.waterBall = new WaterBall();
         this.cloud = new Cloud(this.scene);
-
+        
+        this._colorGround();
         this._initInstance();
+    }
+
+    _colorGround() {
+        this.model.ground.material = new THREE.MeshBasicMaterial({color: "#00ff00"});
     }
 
     _initInstance() {
