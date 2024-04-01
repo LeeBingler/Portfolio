@@ -9,7 +9,7 @@ import fragmentShader from "../shaders/rockparticles/fragment.glsl";
 export default class Rockrune {
     constructor(rock) {
         this.model = rock;
-        this.color = new THREE.Color('#09DEE7');
+        this.color = new THREE.Color('#white');
 
         this.app = new App();
         this.sizes = this.app.sizes;
