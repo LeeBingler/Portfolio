@@ -121,9 +121,18 @@ body {
 
 
 /* Form Contact */
+.contact-section form {
+    width: 100%;
+
+    margin-top: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .form-holder {
     font-family: 'Roboto', sans-serif;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .form-holder label {
@@ -151,7 +160,7 @@ body {
     background: transparent;
     border: none;
 
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
 }
 
 .textarea-form {
@@ -202,7 +211,7 @@ body {
 }
 
 .social-container a img {
-    max-width: 50px;
+    max-width: 45px;
     opacity: 65%;
 
     transition: opacity 0.4s;
@@ -314,6 +323,10 @@ input:checked + .slider:before {
 
         padding-left: 0.2rem;
         padding-right: 0.2rem;
+    }
+
+    .contact-section > .title {
+        font-size: 4.5rem;
     }
 
     .about-holder {
