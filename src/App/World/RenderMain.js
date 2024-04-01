@@ -17,8 +17,8 @@ export default class RenderMain {
         this.debug = this.app.debug;
 
         this.world = new World();
-        this.scene2 = this.world.meadowSceneNight;
-        this.scene1 = this.world.meadowSceneDay;
+        this.scene1 = this.world.meadowSceneNight;
+        this.scene2 = this.world.meadowSceneDay;
 
         if (this.debug.active) {
             this.debugFolder = this.debug.ui.addFolder('RenderMain');

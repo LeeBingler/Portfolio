@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 import App from "../App.js";
+import Rockrune from './RockRune.js';
 import Scarecrow from './Scarecrow.js';
 
 export default class Meadow {
@@ -54,14 +55,20 @@ export default class Meadow {
             if (child.name === "Scarecrow") {
                 this.scarecrow = child;
             }
+
+            if (child.name === "RockRune") {
+                this.rockrune = child
+            }
         })
     }
 
     _initSpecial() {
         this.scarecrow = new Scarecrow(this.scarecrow);
+        this.rockrune = new Rockrune(this.rockrune);
     }
 
     onClick() {
         this.scarecrow.onClick();
+        this.rockrune.onClick();
     }
 }

@@ -27,7 +27,6 @@ export default class MeadowSceneNight {
         );
         this.moon = new Moon();
         this.stars = new Stars();
-
         this._colorGround();
         this._initScene();
     }
