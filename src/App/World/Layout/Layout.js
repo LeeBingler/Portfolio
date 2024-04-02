@@ -5,6 +5,7 @@ import AboutLayout from './AboutLayout.js';
 import ButtonMode from './ButtonMode.js';
 import ButtonsNavigation from './ButtonsNavigation.js';
 import ContactLayout from './ContactLayout.js';
+import CvButton from './CvButton.js';
 import PortfolioLayout from './PortfolioLayout.js';
 import PresentationLayout from './PresentationLayout.js';
 
@@ -51,6 +52,7 @@ export default class Layout {
         this.contact = new ContactLayout();
         this.buttonsNavigation = new ButtonsNavigation(this);
         this.buttonMode = new ButtonMode();
+        this.buttonCv = new CvButton();
 
         this.mainSection.append(this.about.section, this.contact.section, this.portfolio.section);
     }
