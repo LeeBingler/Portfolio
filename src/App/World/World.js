@@ -44,6 +44,7 @@ export default class World {
     
     resize() {
         if (this.ready) {
+            this.layout.resize();
             this.renderMain.resize();
             this.meadowSceneDay.resize();
             this.meadowSceneNight.resize();

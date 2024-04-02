@@ -57,6 +57,10 @@ export default class Layout {
         this.mainSection.append(this.about.section, this.contact.section, this.portfolio.section);
     }
 
+    resize() {
+        this.presentation.resize();
+    }
+
     onPointerMove() {
         this.presentation.onPointerMove();
     }

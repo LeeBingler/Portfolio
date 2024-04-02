@@ -40,7 +40,7 @@ export default class PresentationLayout {
     }
 
     _initGeometry() {
-        this.geometryPresentation = new THREE.PlaneGeometry(16 / 4, 9 / 4);
+        this.geometryPresentation = new THREE.PlaneGeometry(16, 9);
     }
 
     _initInstance() {
@@ -48,9 +48,18 @@ export default class PresentationLayout {
             this.geometryPresentation,
             this.materialPresentation
         );
-
+        this.resize();
         this.instance.position.set(0, 1, -3.5);
         this.instance.lookAt(this.camera.position);
+    }
+
+    resize() {
+        if (this.sizes.width < 960) {
+            const scalar = this.sizes.width / 960 * 0.28;
+            this.instance.scale.setScalar(scalar);
+        } else {
+            this.instance.scale.setScalar(0.28);
+        }
     }
 
     onPointerMove() {
