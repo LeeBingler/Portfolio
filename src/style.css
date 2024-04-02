@@ -355,6 +355,17 @@ input:checked + .slider:before {
     border-bottom: white 1px solid;
 
     cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.portfolio-card:hover {
+    opacity: 1;
+}
+
+.portfolio-card h2 {
+    font-weight: 300;
+    text-transform: uppercase;
 }
 
 .back-button {
@@ -399,7 +410,7 @@ input:checked + .slider:before {
     font-size: 1.5rem;
 }
 
-.popup-subinfo :not(h3) {
+.popup-subinfo p {
     color: grey;
 }
 
@@ -423,9 +434,15 @@ input:checked + .slider:before {
     opacity: 1;
 }
 
-.popup-main :is(p) {
+.popup-main {
+    margin-left: 0.5rem;
+}
+
+.popup-main p {
     color: grey;
-    width: 60%;
+    width: 100%;
+    max-width: 600px;
+    font-size: 1.2rem;
 
     white-space: break-spaces;
 }
@@ -452,6 +469,7 @@ input:checked + .slider:before {
 .popup-title {
     color: white;
     font-size: 2rem;
+    font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
@@ -493,5 +511,24 @@ input:checked + .slider:before {
         align-items: center;
         row-gap: 0.5rem;
         padding: 0;
+    }
+    
+    .popup-title.main-title {
+        font-size: 3.5rem;
+    }
+
+    .popup {
+        margin-left: 2rem; 
+        margin-right: 2rem; 
+    }
+
+    .popup-holder {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .popup-images {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 }
