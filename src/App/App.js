@@ -60,7 +60,6 @@ export default class App {
     }
 
     _onPointerMove() {
-        this.camera.onPointerMove();
         this.world.onPointerMove();
     }
 
