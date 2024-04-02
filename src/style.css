@@ -512,6 +512,11 @@ input:checked + .slider:before {
         row-gap: 0.5rem;
         padding: 0;
     }
+
+    .portfolio-card {
+        font-size: 5vw;
+        padding-left: 1rem;
+    }
     
     .popup-title.main-title {
         font-size: 3.5rem;
