@@ -430,11 +430,23 @@ input:checked + .slider:before {
     white-space: break-spaces;
 }
 
-.popup-image {
+.popup-images {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr, 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
     gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+.popup-images img {
+    position: relative;
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
 }
 
 .popup-title {
