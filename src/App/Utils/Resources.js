@@ -23,7 +23,6 @@ export default class Resources extends EventEmitter {
         this.loaders.textureLoader = new THREE.TextureLoader();
         this.loaders.audioLoader = new THREE.AudioLoader();
         this.loaders.gltfLoader = new GLTFLoader();
-        this.loaders.textureLoader = new THREE.TextureLoader();
     }
 
     _sourceLoaded(source, file) {

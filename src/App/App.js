@@ -11,6 +11,7 @@ import World from './World/World';
 
 import sources from './sources';
 import Mouse from './Utils/Mouse';
+import Preloader from './Preloader';
 
 let instance = null;
 
@@ -31,6 +32,7 @@ export default class App {
         this.time = new Time();
         this.scene = new THREE.Scene();
         this.resources = new Resources(sources);
+        this.preloader = new Preloader();
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.raycaster = new MyRaycaster();

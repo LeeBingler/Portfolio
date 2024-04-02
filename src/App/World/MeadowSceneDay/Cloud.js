@@ -24,14 +24,12 @@ export default class Cloud {
     }
 
     _addFog() {
-        this.fog = new THREE.Fog( 0x4584b4, - 100, 3000 );
+        this.fog = new THREE.Fog("#4584b4", - 100, 3000);
         this.scene.fog = this.fog;
     }
 
     _initTexture() {
         this.texture = this.app.resources.items.TextureCloud;
-        this.texture.magFilter = THREE.LinearMipMapLinearFilter;
-		this.texture.minFilter = THREE.LinearMipMapLinearFilter;
         this.texture.colorSpace = THREE.SRGBColorSpace;
     }
 

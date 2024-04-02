@@ -270,7 +270,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #FFFACD;
+  background-color: #1f263b;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -288,7 +288,7 @@ body {
 }
 
 input:checked + .slider {
-  background-color: #1f263b;
+  background-color: #FFFACD;
 }
 
 input:checked + .slider:before {
@@ -306,6 +306,32 @@ input:checked + .slider:before {
   border-radius: 50%;
 } 
 
+
+.preloader {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage-load {
+    font-family: "Great Vibes", cursive;
+    color: white;
+
+    font-size: 40vh;
+    font-weight: 700;
+    
+    user-select: none;
+}
 
 /* Media Query */
 @media (max-width: 960px) {
