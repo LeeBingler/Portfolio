@@ -47,7 +47,7 @@ export default class Preloader {
 
     onReady() {
         const destroy = () => {
-            this.number.remove();
+            this.numbers.remove();
             this.preloader.remove();
         }
 
