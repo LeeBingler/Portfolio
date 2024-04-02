@@ -1,0 +1,20 @@
+/* About Section */
+.about-holder {
+    height: fit-content;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-holder p {
+    margin-bottom: 0.7rem;
+}

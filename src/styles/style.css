@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+@import url('./AboutSection.css');
+@import url('./ButtonSection.css');
+@import url('./FormContact.css');
+@import url('./ModeButton.css');
+@import url('./Portfolio.css');
+@import url('./Preloader.css');
+@import url('./Section3D.css');
+
+body * {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background: transparent;
+}
+
+#webgl {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+
+    background: black;
+}
+
+/* Media Query */
+@media (max-width: 960px) {
+    .buttons {
+        font-size: 1rem;
+        padding: 7px;
+    }
+
+    .about-section, .contact-section {
+        width: 90vw;
+        left: calc(50% - 90vw / 2);
+        right: 0;
+
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+
+    .contact-section > .title {
+        font-size: 4.5rem;
+    }
+
+    .about-holder {
+        font-size: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .submit-holder {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 0.5rem;
+        padding: 0;
+    }
+
+    .portfolio-card {
+        font-size: 5vw;
+        padding-left: 1rem;
+    }
+    
+    .popup-title.main-title {
+        font-size: 3.5rem;
+    }
+
+    .popup {
+        margin-left: 2rem; 
+        margin-right: 2rem; 
+    }
+
+    .popup-holder {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .popup-images {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

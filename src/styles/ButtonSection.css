@@ -1,0 +1,57 @@
+/* Buttons Section */
+.section-buttons {
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    bottom: 2%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.buttons {
+    color: white;
+    background: transparent;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    width: 20%;
+    max-width: fit-content;
+
+    border: white 2px solid;
+    border-radius: 9999px;
+
+    padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: all 0.25s;
+}
+
+.buttons-active {
+    color: black;
+    background:white;
+}
+
+.buttons:hover {
+    color: black;
+    background:white;
+}
+
+.buttons-cv {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1rem;
+
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+}
+

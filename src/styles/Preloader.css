@@ -1,0 +1,27 @@
+/* Preloader */
+.preloader {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.percentage-load {
+    font-family: "Great Vibes", cursive;
+    color: white;
+
+    font-size: min(25vw, 300px);
+    font-weight: 700;
+    
+    user-select: none;
+}
+

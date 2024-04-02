@@ -1,0 +1,52 @@
+/* Section 3D */
+.section-info {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    
+    top: 6.5vh;
+
+    width: 45vw;
+    height: 85vh;
+
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    transform: scaleY(0);
+    will-change: transform;
+
+    transition: transform 0.2s;
+}
+
+.section-info .title {
+    font-family: "Great Vibes", cursive;
+    font-size: 5rem;
+    text-decoration: underline;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 1rem;
+
+    user-select: none;
+}
+
+.about-section {
+    left: 50px;
+}
+
+.contact-section {
+    right: 50px;
+}
+
+.portfolio-section {
+    width: 90vw;
+    left: calc(50% - 90vw / 2);
+}
+
+.active {
+    transform: scaleY(1);
+    will-change: transform
+}

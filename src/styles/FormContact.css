@@ -1,0 +1,101 @@
+/* Form Contact */
+.contact-section form {
+    width: 100%;
+
+    margin-top: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-holder {
+    font-family: 'Roboto', sans-serif;
+    padding: 1.2rem;
+}
+
+.form-holder label {
+    font-size: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 5px;
+    border: #262626 1px solid;
+
+    padding: 0.5rem;
+
+    transition: border-color 0.4s;
+}
+
+.form-holder label:focus-within {
+    border-color: white;
+}
+
+.input-form, .textarea-form {
+    color: white;
+    font-size: 1.1rem;
+
+    background: transparent;
+    border: none;
+
+    margin-top: 0.2rem;
+}
+
+.textarea-form {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.input-form:focus, .textarea-form:focus {
+    outline: none;
+}
+
+.button-form {
+    cursor: pointer;
+
+    font-size: 1.2rem;
+
+    background: #aaaaaa;
+
+    padding: 0.5rem;
+
+    border-radius: 5px;
+    border: none;
+
+    width: 40%;
+    transition: background-color 0.4s;
+}
+
+.button-form:hover {
+    background-color: white;
+}
+
+.submit-holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    column-gap: 2rem;
+}
+
+.social-container {
+    display: flex;
+    
+    column-gap: 0.5rem;
+}
+
+.social-container a {
+    cursor: pointer;
+}
+
+.social-container a img {
+    max-width: 45px;
+    opacity: 65%;
+
+    transition: opacity 0.4s;
+}
+
+.social-container a img:hover {
+    opacity: 100%;
+}
+
