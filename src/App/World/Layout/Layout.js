@@ -41,9 +41,9 @@ export default class Layout {
     }
 
     _addItemsThree() {
-        this.presentation = new PresentationLayout();
+        this.presentation1 = new PresentationLayout();
+        this.presentation2 = new PresentationLayout();
 
-        this.instance.add(this.presentation.instance);
     }
 
     _addItemsHTML() {
@@ -58,14 +58,17 @@ export default class Layout {
     }
 
     resize() {
-        this.presentation.resize();
+        this.presentation1.resize();
+        this.presentation2.resize();
     }
 
     onPointerMove() {
-        this.presentation.onPointerMove();
+        this.presentation1.onPointerMove();
+        this.presentation2.onPointerMove();
     }
 
     update() {
-        this.presentation.update();
+        this.presentation1.update();
+        this.presentation2.update();
     }
 }

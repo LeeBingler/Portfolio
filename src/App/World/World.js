@@ -23,8 +23,8 @@ export default class World {
             this.renderMain = new RenderMain(this.meadowScene, this.cityScene);
             this.layout = new Layout();
 
-            this.meadowSceneNight.scene.add(this.layout.instance);
-            this.meadowSceneDay.scene.add(this.layout.instance.clone());
+            this.meadowSceneNight.scene.add(this.layout.presentation1.instance);
+            this.meadowSceneDay.scene.add(this.layout.presentation2.instance);
             this.ready = true;
         });
     }
