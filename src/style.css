@@ -315,7 +315,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 } 
 
-
+/* Preloader */
 .preloader {
     z-index: 1000;
     position: absolute;
@@ -336,7 +336,7 @@ input:checked + .slider:before {
     font-family: "Great Vibes", cursive;
     color: white;
 
-    font-size: 40vh;
+    font-size: min(25vw, 300px);
     font-weight: 700;
     
     user-select: none;
