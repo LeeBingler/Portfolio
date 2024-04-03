@@ -14,11 +14,11 @@ export default class Camera {
         this.mouse = this.app.mouse;
         this.debug = this.app.debug;
 
-        this.controls = null;
+        this.oldx = 0;
+        this.oldy = 0;
 
         this._setInstance();
         this._setOrthographic();
-        //this._setControl();
     }
 
     _setInstance() {
@@ -40,7 +40,6 @@ export default class Camera {
             -10,
             10
         );
-
         this.scene.add(this.orthographic);
     }
 
@@ -53,20 +52,15 @@ export default class Camera {
         this.controls.verticalMax = Math.PI * -0.1;
     }
 
-    onPointerMove() {
-        /* TODO */
-        /* Need to remove this for the final release */
-        if (this.controls) return;
+    onPointerMove(deltaTime) {
+        let parralaxX = this.mouse.coordNormalize.x - this.oldx;
+        let parralaxY = this.mouse.coordNormalize.y - this.oldy;
 
-        /* TODO: Fix the rotation when we change scene*/
-        /* We need to rotate from local axis and to add some edges */
-        /*
-        let yRotation = -this.mouse.coordNormalize.x * 0.02;
-        let xRotation = this.mouse.coordNormalize.y * 0.02;
+        this.instance.translateX(parralaxX * deltaTime * 0.01);
+        this.instance.translateY(parralaxY * deltaTime * 0.01);
 
-        this.instance.rotateY(yRotation);
-        this.instance.rotateX(xRotation);
-*/
+        this.oldx = this.mouse.coordNormalize.x;
+        this.oldy = this.mouse.coordNormalize.y;
     }
 
     resize() {
@@ -78,11 +72,5 @@ export default class Camera {
         this.orthographic.top = this.sizes.height / 2;
         this.orthographic.bottom = this.sizes.height / -2;
         this.orthographic.updateProjectionMatrix();
-    }
-
-    update(deltaTime) {
-        if (this.controls) {
-            this.controls.update(deltaTime);
-        }
     }
 }

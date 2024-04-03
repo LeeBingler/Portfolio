@@ -60,6 +60,7 @@ export default class App {
     }
 
     _onPointerMove() {
+        this.camera.onPointerMove(this.time.delta);
         this.world.onPointerMove();
     }
 
@@ -70,7 +71,6 @@ export default class App {
     }
 
     _update() {
-        this.camera.update(this.time.delta);
         this.world.update(this.time.elapsed, this.time.delta);
     }
 }
